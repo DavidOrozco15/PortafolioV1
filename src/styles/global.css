@@ -1,0 +1,168 @@
+/* ===========================
+   GLOBAL STYLES & VARIABLES
+   =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #1e1e1e;
+  --bg-card-hover: #252525;
+  --color-dark-gray: #3D3D3D;
+  --color-mid-gray: #A6A6A6;
+  --color-light: #F5F5F5;
+  --color-white: #ffffff;
+  --border-color: #2a2a2a;
+  --border-hover: #3D3D3D;
+
+  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Open Sans', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-med: 0.4s ease;
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dark-gray) var(--bg-primary);
+}
+
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: var(--bg-primary); }
+html::-webkit-scrollbar-thumb { background: var(--color-dark-gray); border-radius: 3px; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--color-light);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===========================
+   SECTION HEADER STYLES
+   =========================== */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-mid-gray);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+.section-label::before { content: '... /'; }
+.section-label::after  { content: ' ...'; }
+
+.section-title-large {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ===========================
+   PILL / TAG STYLES
+   =========================== */
+.tag {
+  display: inline-block;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-light);
+  background: transparent;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.tag:hover {
+  border-color: var(--color-mid-gray);
+  background: var(--bg-card);
+}
+
+/* ===========================
+   CARD BASE
+   =========================== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: border-color var(--transition-med), transform var(--transition-med), background var(--transition-med);
+}
+.card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   DECORATIVE CIRCLE
+   =========================== */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+/* ===========================
+   FADE-IN ANIMATION HELPER
+   =========================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   CONTAINER
+   =========================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+}

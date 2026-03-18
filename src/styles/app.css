@@ -1,0 +1,13 @@
+.portfolio-root {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+  min-height: 100vh;
+}
+
+.portfolio-root.portfolio-visible {
+  opacity: 1;
+}
+
+main {
+  position: relative;
+}

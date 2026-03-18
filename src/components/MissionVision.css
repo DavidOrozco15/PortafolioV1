@@ -1,0 +1,73 @@
+.mvv-section {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.mvv-card {
+  padding: 2rem;
+}
+
+.mvv-objectives {
+  grid-column: 1 / -1;
+}
+
+.mvv-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.mvv-title {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.mvv-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--color-mid-gray);
+  line-height: 1.75;
+}
+
+.mvv-values-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.mvv-values-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--color-mid-gray);
+}
+.value-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-dark-gray);
+  flex-shrink: 0;
+}
+
+.objectives-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 680px) {
+  .mvv-grid { grid-template-columns: 1fr; }
+  .mvv-objectives { grid-column: 1; }
+}
