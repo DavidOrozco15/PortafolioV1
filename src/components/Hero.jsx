@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 
 const socialLinks = [
-  { label: 'GitHub',    icon: '⌥', href: '#' },
-  { label: 'LinkedIn',  icon: 'in', href: '#' },
+  { label: 'GitHub',    icon: '⌥', href: 'https://github.com/DavidOrozco15' },
+  { label: 'LinkedIn',  icon: 'in', href: 'https://www.linkedin.com/in/davidorozco15/' },
   { label: 'Telegram',  icon: '✈', href: '#' },
   { label: 'Facebook',  icon: 'f',  href: '#' },
   { label: 'Instagram', icon: '◎',  href: '#' },
@@ -33,11 +33,11 @@ export default function Hero() {
           <div className="hero-top hero-anim fade-in">
             <div className="hero-name">
               {/* ✏️ REPLACE: Your first and last name */}
-              <span className="name-first">Your</span>
-              <span className="name-last">Name</span>
+              <span className="name-first">David</span>
+              <span className="name-last">Orozco</span>
             </div>
             <a href="#projects" className="hero-cta-btn">
-              <span>Projects</span>
+              <span>Proyectos</span>
               <span className="arrow-icon">→</span>
             </a>
           </div>

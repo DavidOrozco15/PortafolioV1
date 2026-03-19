@@ -32,8 +32,8 @@ export default function Contact() {
           <div className="contact-name-block">
             {/* ✏️ REPLACE: Your full name */}
             <h2 className="contact-name">
-              <span>Your</span>
-              <span>Name</span>
+              <span>David</span>
+              <span>Orozco</span>
             </h2>
             <p className="contact-role">
               {/* ✏️ REPLACE: Your job title */}

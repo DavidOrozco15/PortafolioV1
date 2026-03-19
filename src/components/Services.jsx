@@ -55,7 +55,7 @@ export default function Services() {
     <section id="services" className="services-section" ref={ref}>
       <div className="container">
         <div className="services-header">
-          <p className="section-label">Services</p>
+          <p className="section-label">Servicios</p>
           <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>
             Services
           </h2>

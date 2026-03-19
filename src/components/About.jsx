@@ -25,10 +25,10 @@ const skillGroups = [
 // ✏️ REPLACE: Your work experience
 const workExperience = [
   {
-    period: '2024 – Present',
+    period: '2025 – Present',
     duration: '1 yr+',
-    company: 'Company Name',
-    role: 'Frontend Developer',
+    company: 'CampusLands',
+    role: 'Full-stack Developer',
     tech: 'React & TypeScript',
     active: true,
   },
@@ -64,7 +64,7 @@ export default function About() {
   return (
     <section id="about" className="about-section" ref={ref}>
       <div className="container">
-        <p className="section-label">About me</p>
+        <p className="section-label">Sobre mi</p>
 
         <div className={`about-grid fade-in ${inView ? 'visible' : ''}`}>
           {/* Left: Bio text */}
@@ -76,7 +76,7 @@ export default function About() {
             </p>
             <p className="about-text">
               {/* ✏️ REPLACE: Your about paragraph */}
-              Passionate about building clean, scalable applications. I love solving complex problems and turning ideas into reality through code. Write your detailed bio here, including your background, passion, and what makes you unique as a developer.
+              Soy Desarrollador Full Stack con un enfoque integral que combina sólidos conocimientos en hardware, desarrollo de software y creación de aplicaciones modernas. Mi stack principal incluye JavaScript para el desarrollo de interfaces dinámicas y Python con SQL para la gestión eficiente de lógica de negocio y bases de datos.
             </p>
 
             {/* Skills grid */}

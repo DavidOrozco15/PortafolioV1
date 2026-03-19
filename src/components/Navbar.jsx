@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 
 const navLinks = [
-  { label: 'About',        href: '#about' },
-  { label: 'Projects',     href: '#projects' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Contact',      href: '#contact' },
+  { label: 'Sobre mi',        href: '#about' },
+  { label: 'Proyectos',     href: '#projects' },
+  { label: 'Certificaciones', href: '#certifications' },
+  { label: 'Contacto',      href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -24,8 +24,8 @@ export default function Navbar() {
         {/* Logo / Name */}
         <a href="#hero" className="navbar-logo">
           {/* ✏️ REPLACE: Your name or logo here */}
-          <span className="logo-first">Your</span>
-          <span className="logo-last">Name</span>
+          <span className="logo-first">David</span>
+          <span className="logo-last">Orozco</span>
         </a>
 
         {/* Desktop nav */}
