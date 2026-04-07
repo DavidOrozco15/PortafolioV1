@@ -6,7 +6,7 @@ import './Contact.css';
 const socialLinks = [
   { label: 'Github',    icon: '⌥',  href: '#' },   // ✏️ REPLACE href with your GitHub URL
   { label: 'Linkedin',  icon: 'in', href: '#' },   // ✏️ REPLACE
-  { label: 'E-mail',    icon: '✉',  href: 'mailto:your@email.com' }, // ✏️ REPLACE email
+  { label: 'E-mail',    icon: '✉',  href: 'juanodavid94@gmail.com' }, // ✏️ REPLACE email
   { label: 'Telegram',  icon: '✈',  href: '#' },   // ✏️ REPLACE
   { label: 'Facebook',  icon: 'f',  href: '#' },   // ✏️ REPLACE
   { label: 'Instagram', icon: '◎',  href: '#' },   // ✏️ REPLACE
@@ -79,7 +79,7 @@ export default function Contact() {
         <div className={`contact-footer fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
           <span className="footer-copy">
             {/* ✏️ REPLACE: Your name */}
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} David Orozco. All rights reserved.
           </span>
           <span className="footer-built">
             Built with React + Vite
