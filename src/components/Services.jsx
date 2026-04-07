@@ -6,45 +6,45 @@ import './Services.css';
 const services = [
   {
     number: '01',
-    title: 'Web Development',
+    title: 'Frontend Development',
     description:
-      'Description of your web development service. Explain what you build, the technologies you use, and the value you deliver.',
-    tags: ['React', 'Next.js', 'TypeScript'],
+      'Desarrollo interfaces web modernas, responsivas y centradas en el usuario utilizando HTML, CSS y JavaScript.',
+    tags: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
   },
   {
     number: '02',
     title: 'Backend Development',
     description:
-      'Description of your backend development service. APIs, databases, microservices — describe what you offer.',
-    tags: ['Node.js', 'Golang', 'PostgreSQL'],
+      'Desarrollo lógica del lado del servidor, manejo de datos y creación de APIs básicas para aplicaciones web.',
+    tags: ['Node.js', 'APIs', 'JSON', 'Python'],
   },
   {
     number: '03',
-    title: 'Mobile Development',
+    title: 'Desarrollo Fullstack',
     description:
-      'Description of your mobile development service. Cross-platform or native, describe your mobile capabilities.',
-    tags: ['React Native', 'iOS', 'Android'],
+      'Construcción de aplicaciones web completas integrando frontend y backend, aplicando buenas prácticas y estructura escalable.',
+    tags: ['Fullstack', 'CRUD', 'Web Apps'],
   },
   {
     number: '04',
     title: 'UI/UX Design',
     description:
-      'Description of your design service. Wireframing, prototyping, design systems — describe your design skills.',
-    tags: ['Figma', 'Design Systems', 'Prototyping'],
+      'Diseño interfaces atractivas y prototipos en Figma, priorizando la usabilidad y la experiencia del usuario.',
+    tags: ['Figma', 'UX', 'Prototyping'],
   },
   {
     number: '05',
-    title: 'Consulting & Code Review',
+    title: 'Automatización de Procesos (n8n)',
     description:
-      'Description of your consulting service. Architecture reviews, code audits, technical consulting.',
-    tags: ['Architecture', 'Code Review', 'Mentoring'],
+      'Automatización de flujos de trabajo utilizando n8n, integrando APIs, bases de datos y servicios para optimizar procesos y reducir tareas manuales.',
+    tags: ['n8n', 'Automation', 'APIs'],
   },
   {
     number: '06',
-    title: 'Add Your Service',
+    title: 'Soporte Técnico IT',
     description:
-      '✏️ Replace this with your own service offering. Describe what you do and what value you provide to clients.',
-    tags: ['Tag 1', 'Tag 2', 'Tag 3'],
+      'Diagnóstico y solución de problemas en hardware, software y redes, garantizando el correcto funcionamiento de sistemas.',
+    tags: ['Hardware', 'Software', 'Networking'],
   },
 ];
 
@@ -57,7 +57,7 @@ export default function Services() {
         <div className="services-header">
           <p className="section-label">Servicios</p>
           <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>
-            Services
+            Servicios
           </h2>
         </div>
 

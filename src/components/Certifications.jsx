@@ -5,14 +5,50 @@ import './Certifications.css';
 const certifications = [
   {
     id: 1,
-    title: 'Curso en Creación y Diseño de Páginas Web',          // ✏️ Nombre del certificado
-    issuer: 'Tecnologico de Monterrey VEC',        // ✏️ Quien lo emite
-    date: 'Expedición: abr. 2025',                    // ✏️ Fecha
-    credentialId: 'XXXX-XXXX-XXXX',       // ✏️ ID de la credencial
-    credentialUrl: '',                     // ✏️ URL externa (opcional)
-    image: '/certs/cert1.png',             // ✏️ Imagen en public/certs/
-    description: 'Descripción breve.',
-    tags: ['Skill 1', 'Skill 2'],
+    title: 'Análisis de Datos Básico',         
+    issuer: 'TalentoTech',     
+    date: 'Expedición: dic. 2024',                
+    credentialId: 'XXXX-XXXX-XXXX',     
+    credentialUrl: '',                   
+    image: '/certs/cert1.png',             
+    description: 'Introducción al análisis de datos y toma de decisiones basada en información.',
+    tags: ['Data Analysis', 'Insights'],
+  },
+
+  {
+    id: 2,
+    title: 'Introducción y Manejo de Power BI',         
+    issuer: 'MinTIC',       
+    date: 'Expedición: abr. 2025',              
+    credentialId: 'XXXX-XXXX-XXXX',     
+    credentialUrl: '',                   
+    image: '/certs/cert1.png',            
+    description: 'Creación de dashboards interactivos y visualización de datos.',
+    tags: ['Power BI', 'Dashboards', 'Visualization'],
+  },
+
+  {
+    id: 3,
+    title: 'Técnico en Sistemas',         
+    issuer: 'SENA',       
+    date: 'Expedición: nov. 2019',              
+    credentialId: 'XXXX-XXXX-XXXX',     
+    credentialUrl: '',                   
+    image: '/certs/cert1.png',            
+    description: 'Formación técnica en soporte, mantenimiento de equipos, redes y sistemas informáticos, con enfoque en diagnóstico y solución de problemas.',
+    tags: ['Hardware', 'Networking', 'IT Support', 'Systems'],
+  },
+
+  {
+    id: 4,
+    title: 'Network Security',         
+    issuer: 'Cisco - SENATIC',     
+    date: 'Expedición: oct. 2024',                
+    credentialId: 'XXXX-XXXX-XXXX',     
+    credentialUrl: '',                   
+    image: '/certs/cert1.png',             
+    description: 'Fundamentos de ciberseguridad, protección de redes y buenas prácticas en seguridad informática.',
+    tags: ['Cybersecurity', 'Networking', 'Security'],
   },
   
   // ✏️ Copia este bloque para agregar más certificados
@@ -99,7 +135,7 @@ export default function Certifications() {
       <div className="container">
         <div className="certs-header">
           <p className="section-label">Certifications</p>
-          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>Certifications</h2>
+          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>Formación y Certificaciones</h2>
         </div>
         <div className="certs-layout">
           <div className="certs-pagination-side">
