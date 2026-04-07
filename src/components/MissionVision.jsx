@@ -9,16 +9,17 @@ export default function MissionVision() {
     <section id="mission" className="mvv-section" ref={ref}>
       <div className="deco-circle" style={{ width: 500, height: 500, top: '50%', left: -200, transform: 'translateY(-50%)' }} />
       <div className="container">
-        <p className="section-label">Mission, Vision & Values</p>
+        <p className="section-label">Mision, Vision & Valores</p>
 
         <div className={`mvv-grid fade-in ${inView ? 'visible' : ''}`}>
           {/* Mission */}
           <div className="mvv-card card">
             <div className="mvv-icon">🎯</div>
-            <h3 className="mvv-title">Mission</h3>
+            <h3 className="mvv-title">Mision</h3>
             <p className="mvv-text">
               {/* ✏️ REPLACE: Your professional mission statement */}
-              Write your mission statement here. Describe what you aim to accomplish in your professional career and how you create value for clients and organizations through your work as a developer.
+              Mi misión es desarrollar soluciones tecnológicas eficientes y funcionales que resuelvan problemas reales, combinando desarrollo web, automatización y soporte IT para generar valor en cada proyecto.
+              Busco crear aplicaciones intuitivas, optimizadas y escalables, enfocadas en mejorar la experiencia del usuario y la eficiencia de los procesos.
             </p>
           </div>
 
@@ -28,7 +29,8 @@ export default function MissionVision() {
             <h3 className="mvv-title">Vision</h3>
             <p className="mvv-text">
               {/* ✏️ REPLACE: Your professional vision statement */}
-              Write your vision statement here. Describe where you see yourself in the future, what kind of developer you aspire to be, and the impact you want to have on technology and the world.
+              Convertirme en un desarrollador fullstack altamente capacitado, especializado en la creación de sistemas completos y automatizados, integrando tecnologías modernas y herramientas como n8n.
+              Aspiro a participar en proyectos innovadores que generen impacto real, optimizando procesos y aportando soluciones tecnológicas a nivel empresarial.
             </p>
           </div>
 
@@ -38,11 +40,12 @@ export default function MissionVision() {
             <h3 className="mvv-title">Values</h3>
             <ul className="mvv-values-list">
               {/* ✏️ REPLACE: Your core professional values */}
-              <li><span className="value-dot" />Clean & maintainable code</li>
-              <li><span className="value-dot" />Continuous learning</li>
-              <li><span className="value-dot" />User-centric development</li>
-              <li><span className="value-dot" />Collaboration & teamwork</li>
-              <li><span className="value-dot" />Add your value here</li>
+              <li><span className="value-dot" />Calidad y mantenibilidad del código</li>
+              <li><span className="value-dot" />Aprendizaje constante</li>
+              <li><span className="value-dot" />Enfoque en la solución de problemas</li>
+              <li><span className="value-dot" />Experiencia centrada en el usuario</li>
+              <li><span className="value-dot" />Optimización y automatización de procesos</li>
+              <li><span className="value-dot" />Colaboración y trabajo en equipo</li>
             </ul>
           </div>
 
