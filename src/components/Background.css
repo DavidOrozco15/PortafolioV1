@@ -1,0 +1,12 @@
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease 0.3s;
+}
+
+.bg-canvas.bg-visible {
+  opacity: 1;
+}

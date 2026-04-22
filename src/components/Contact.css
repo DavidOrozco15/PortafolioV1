@@ -1,33 +1,34 @@
 .contact-section {
-  padding: 6rem 0 3rem;
+  padding: 8rem 0 3.5rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
+/* ── 3-column top row ── */
 .contact-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 180px 260px;
+  gap: 4rem;
   align-items: start;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-/* Name block */
+/* ── Name block (col 1) ── */
 .contact-name-block {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .contact-name {
   font-family: var(--font-mono);
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-size: clamp(4rem, 9vw, 7.5rem);
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 0.95;
   display: flex;
   flex-direction: column;
 }
@@ -37,33 +38,46 @@
   font-size: 0.9rem;
   color: var(--color-mid-gray);
   line-height: 1.5;
-  margin-top: 1rem;
 }
 
-/* Contact info */
-.contact-info {
+/* ── Generic column (cols 2 & 3) ── */
+.contact-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   padding-top: 0.5rem;
 }
 
+.contact-col-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-dark-gray);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Navigation (col 2) ── */
 .contact-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.5rem;
+  flex-direction: column;
+  gap: 0.55rem;
 }
+
 .contact-nav-link {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   color: var(--color-mid-gray);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+  display: inline-block;
 }
-.contact-nav-link:hover { color: var(--color-white); }
+.contact-nav-link:hover {
+  color: var(--color-white);
+  padding-left: 0.4rem;
+}
 
+/* ── Site card (col 3) ── */
 .contact-site-card {
   padding: 1.25rem 1.5rem;
-  max-width: 280px;
 }
 .card-label {
   font-family: var(--font-mono);
@@ -78,35 +92,42 @@
   line-height: 1.7;
 }
 
-/* Social buttons */
+/* ── Social buttons ── */
 .contact-socials {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
 }
 
 .contact-social-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-pill);
-  padding: 0.6rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-mid-gray);
-  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
 }
 .contact-social-btn:hover {
   border-color: var(--color-mid-gray);
   color: var(--color-white);
   background: var(--bg-card);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
-.social-btn-icon { font-size: 0.9rem; }
+.social-btn-icon { font-size: 0.95rem; }
 
-/* Footer */
+/* ── Footer bar ── */
 .contact-footer {
   display: flex;
   justify-content: space-between;
@@ -122,7 +143,30 @@
   color: var(--color-dark-gray);
 }
 
-@media (max-width: 768px) {
-  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .contact-footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 960px) {
+  .contact-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .contact-name-block {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-name-block {
+    grid-column: auto;
+  }
+  .contact-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
 }
