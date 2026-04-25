@@ -273,7 +273,7 @@ export default function MissionVision() {
         {/* ── Heading ── */}
         <div className="mvv-heading">
           <p className="section-label">Misión, Visión &amp; Valores</p>
-          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>Filosofía</h2>
+          <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>Filosofía</h2>
         </div>
 
         {/* ── Tabs layout ── */}

@@ -215,19 +215,19 @@ export default function Services() {
       <div className="container">
         <div className="services-header">
           <p className="section-label">Servicios</p>
-          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>
+          <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>
             Servicios
           </h2>
         </div>
 
-        <div className={`services-grid fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.15s' }}>
+        <div className="services-grid">
           {services.map((s, i) => {
             const Anim = animMap[s.anim];
             return (
               <div
                 key={s.number}
-                className="svc-wrap"
-                style={{ transitionDelay: `${0.05 * i}s` }}
+                className={`svc-wrap fade-in anim-scale ${inView ? 'visible' : ''}`}
+                style={{ transitionDelay: `${0.1 + 0.1 * i}s` }}
               >
                 <div className="service-card">
                   <div className="service-front">

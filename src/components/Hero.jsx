@@ -44,7 +44,7 @@ export default function Hero() {
           </div>
 
           {/* Big title */}
-          <div className="hero-title hero-anim fade-in">
+          <div className="hero-title hero-anim fade-in anim-title">
             {/* ✏️ REPLACE: Your job title / headline */}
             <span className="title-line-1">Full–stack</span>
             <span className="title-line-2">Developer</span>

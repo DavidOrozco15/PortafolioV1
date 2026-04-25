@@ -148,6 +148,34 @@ img {
   transform: translateY(0);
 }
 
+/* Slide from left */
+.fade-in.anim-left  { transform: translateX(-36px); }
+.fade-in.anim-left.visible  { transform: translateX(0); }
+
+/* Slide from right */
+.fade-in.anim-right { transform: translateX(36px); }
+.fade-in.anim-right.visible { transform: translateX(0); }
+
+/* Blur materialise — for section headings */
+.fade-in.anim-title {
+  transform: translateY(14px);
+  filter: blur(7px);
+  transition:
+    opacity 0.95s cubic-bezier(0.16,1,0.3,1),
+    transform 0.95s cubic-bezier(0.16,1,0.3,1),
+    filter 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-in.anim-title.visible { filter: blur(0); }
+
+/* Scale + rise — for cards */
+.fade-in.anim-scale {
+  transform: scale(0.93) translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+    transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-in.anim-scale.visible { transform: scale(1) translateY(0); }
+
 /* ===========================
    CONTAINER
    =========================== */

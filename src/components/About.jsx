@@ -251,10 +251,10 @@ export default function About() {
           <div className="about-left">
             <div className="about-heading">
               <p className="section-label">Sobre mi</p>
-              <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>About</h2>
+              <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>About</h2>
             </div>
 
-            <div className={`about-bio fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.12s' }}>
+            <div className={`about-bio fade-in anim-left ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.12s' }}>
               <p className="about-intro">
                 {/* ✏️ REPLACE */}
                 Hello! I'm <strong>David Orozco</strong>, I'm a <em>full-stack developer</em>.<br />
@@ -273,7 +273,7 @@ export default function About() {
 
           {/* Right column — photo + floating icons */}
           <div className="about-right">
-            <div className={`about-photo-zone fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.18s' }}>
+            <div className={`about-photo-zone fade-in anim-right ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.18s' }}>
 
               {/* Floating tech logo badges */}
               {techBadges.map((tech, i) => (

@@ -29,7 +29,7 @@ export default function Contact() {
       <div className="container">
 
         {/* ── Top row: 3 columns ── */}
-        <div className={`contact-inner fade-in ${inView ? 'visible' : ''}`}>
+        <div className={`contact-inner fade-in anim-left ${inView ? 'visible' : ''}`}>
 
           {/* Col 1 — Name + role */}
           <div className="contact-name-block">

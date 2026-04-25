@@ -121,7 +121,7 @@ function CertCard({ cert, index, delay, inView, onVerify }) {
   const num = String(index + 1).padStart(2, '0');
   return (
     <article
-      className={`cert-card fade-in ${inView ? 'visible' : ''}`}
+      className={`cert-card fade-in anim-scale ${inView ? 'visible' : ''}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {/* Large decorative background number */}
@@ -179,7 +179,7 @@ export default function Certifications() {
         <div className="certs-header">
           <p className="section-label">Certifications</p>
           <div className="certs-heading-row">
-            <h2 className={`certs-title fade-in ${inView ? 'visible' : ''}`}>
+            <h2 className={`certs-title fade-in anim-title ${inView ? 'visible' : ''}`}>
               Formación y<br />Certificaciones
             </h2>
             <div className="certs-counter">
