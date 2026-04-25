@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import DecoRing from './DecoRing';
 import './Projects.css';
 
 // ✏️ REPLACE: Your projects data
@@ -145,7 +146,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section" ref={ref}>
-      <div className="projects-deco-circle" />
+      <DecoRing size={800} style={{ top: '8%', right: -320 }} duration={20} delay={-4} />
       <div className="container">
         <div className="projects-header">
           <p className="section-label">Projects</p>

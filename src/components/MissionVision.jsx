@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
+import DecoRing from './DecoRing';
 import './MissionVision.css';
 
 const tabs = [
@@ -60,6 +61,155 @@ const tabs = [
   },
 ];
 
+function MisionVisual() {
+  return (
+    <svg viewBox="0 0 200 200" className="mvv-svg" aria-hidden="true">
+      {/* Outer static ring */}
+      <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+
+      {/* Middle dashed ring — rotating */}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="30s" repeatCount="indefinite"/>
+        <circle cx="100" cy="100" r="68" fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth="1" strokeDasharray="8 5"/>
+      </g>
+
+      {/* Inner dashed ring — counter-rotating */}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="20s" repeatCount="indefinite"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="5 7"/>
+      </g>
+
+      {/* Innermost static ring */}
+      <circle cx="100" cy="100" r="22" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+
+      {/* Orbiting dot on middle ring */}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="12s" repeatCount="indefinite"/>
+        <circle cx="168" cy="100" r="4" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+      </g>
+
+      {/* Second orbiting dot on inner ring — counter */}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="180 100 100" to="-180 100 100" dur="8s" repeatCount="indefinite"/>
+        <circle cx="144" cy="100" r="3" fill="rgba(255,255,255,0.3)"/>
+      </g>
+
+      {/* Center glow halo */}
+      <circle cx="100" cy="100" r="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.14)" strokeWidth="1"/>
+
+      {/* Center core — pulsing */}
+      <circle cx="100" cy="100" r="4.5" fill="rgba(255,255,255,0.7)">
+        <animate attributeName="r" values="3.5;5.5;3.5" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+      </circle>
+
+      {/* Code symbol */}
+      <text x="100" y="105" textAnchor="middle" fontFamily="'Fira Code',monospace" fontSize="12" fill="rgba(255,255,255,0.13)" fontWeight="500">{'</>'}</text>
+
+      {/* Corner brackets */}
+      <text x="13" y="36" fontFamily="'Fira Code',monospace" fontSize="15" fill="rgba(255,255,255,0.07)">{'{'}</text>
+      <text x="174" y="178" fontFamily="'Fira Code',monospace" fontSize="15" fill="rgba(255,255,255,0.07)">{'}'}</text>
+
+      {/* Compass dots on outer ring */}
+      <circle cx="100" cy="12" r="2.5" fill="rgba(255,255,255,0.18)">
+        <animate attributeName="opacity" values="0.18;0.55;0.18" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="188" cy="100" r="2" fill="rgba(255,255,255,0.12)">
+        <animate attributeName="opacity" values="0.12;0.42;0.12" dur="3.5s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="188" r="2" fill="rgba(255,255,255,0.1)">
+        <animate attributeName="opacity" values="0.1;0.38;0.1" dur="5s" begin="2s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  );
+}
+
+function VisionVisual() {
+  return (
+    <svg viewBox="0 0 200 200" className="mvv-svg" aria-hidden="true">
+      {/* Connection lines */}
+      <line x1="100" y1="100" x2="44" y2="54" stroke="rgba(255,255,255,0.09)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.09;0.24;0.09" dur="4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="100" x2="160" y2="56" stroke="rgba(255,255,255,0.09)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.09;0.24;0.09" dur="3.5s" begin="0.6s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="100" x2="166" y2="150" stroke="rgba(255,255,255,0.09)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.09;0.24;0.09" dur="5s" begin="1.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="100" x2="40" y2="150" stroke="rgba(255,255,255,0.09)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.09;0.24;0.09" dur="4.2s" begin="1.8s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="100" x2="100" y2="30" stroke="rgba(255,255,255,0.06)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.06;0.18;0.06" dur="3.8s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <line x1="100" y1="100" x2="175" y2="100" stroke="rgba(255,255,255,0.06)" strokeWidth="1">
+        <animate attributeName="stroke-opacity" values="0.06;0.18;0.06" dur="4.5s" begin="2s" repeatCount="indefinite"/>
+      </line>
+
+      {/* Expanding pulse rings */}
+      <circle cx="100" cy="100" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="1">
+        <animate attributeName="r" values="16;86;16" dur="7s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.45;0;0.45" dur="7s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="100" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1">
+        <animate attributeName="r" values="16;80;16" dur="7s" begin="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0;0.3" dur="7s" begin="2.8s" repeatCount="indefinite"/>
+      </circle>
+
+      {/* Satellite nodes */}
+      <circle cx="44" cy="54" r="5.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="160" cy="56" r="5.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" begin="0.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="166" cy="150" r="5.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" begin="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="40" cy="150" r="5.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" begin="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="30" r="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.13)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.8s" begin="0.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="175" cy="100" r="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.13)" strokeWidth="1">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4.5s" begin="2s" repeatCount="indefinite"/>
+      </circle>
+
+      {/* Traveling data packets */}
+      <circle r="2.5" fill="rgba(255,255,255,0.6)">
+        <animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#mvv-vl1"/></animateMotion>
+      </circle>
+      <path id="mvv-vl1" d="M 100,100 L 44,54" fill="none"/>
+
+      <circle r="2.5" fill="rgba(255,255,255,0.5)">
+        <animateMotion dur="3.2s" begin="0.9s" repeatCount="indefinite"><mpath href="#mvv-vl2"/></animateMotion>
+      </circle>
+      <path id="mvv-vl2" d="M 100,100 L 160,56" fill="none"/>
+
+      <circle r="2.5" fill="rgba(255,255,255,0.5)">
+        <animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite"><mpath href="#mvv-vl3"/></animateMotion>
+      </circle>
+      <path id="mvv-vl3" d="M 100,100 L 166,150" fill="none"/>
+
+      <circle r="2" fill="rgba(255,255,255,0.4)">
+        <animateMotion dur="2.5s" begin="0.5s" repeatCount="indefinite"><mpath href="#mvv-vl4"/></animateMotion>
+      </circle>
+      <path id="mvv-vl4" d="M 100,100 L 40,150" fill="none"/>
+
+      {/* Central node */}
+      <circle cx="100" cy="100" r="9" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5">
+        <animate attributeName="r" values="9;11;9" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="100" r="4" fill="rgba(255,255,255,0.75)">
+        <animate attributeName="r" values="3.5;5;3.5" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  );
+}
+
 function Panel({ tab }) {
   return (
     <div className="mvv-panel" key={tab.id}>
@@ -117,7 +267,7 @@ export default function MissionVision() {
 
   return (
     <section id="mission" className="mvv-section" ref={ref}>
-      <div className="deco-circle" style={{ width: 680, height: 680, top: '50%', left: -260, transform: 'translateY(-50%)' }} />
+      <DecoRing size={680} style={{ top: '50%', left: -260, transform: 'translateY(-50%)' }} duration={14} delay={-2} />
 
       <div className="container">
         {/* ── Heading ── */}
@@ -150,7 +300,21 @@ export default function MissionVision() {
               <span className="mvv-panel-num">{tabs[active].num}</span>
               <h3 className="mvv-panel-title">{tabs[active].title}</h3>
             </div>
-            <Panel tab={tabs[active]} key={tabs[active].id} />
+            <div className="mvv-panel-body">
+              <div className="mvv-panel-content">
+                <Panel tab={tabs[active]} key={tabs[active].id} />
+              </div>
+              {tabs[active].id === 'mision' && (
+                <div className="mvv-visual" key="mision-visual">
+                  <MisionVisual />
+                </div>
+              )}
+              {tabs[active].id === 'vision' && (
+                <div className="mvv-visual" key="vision-visual">
+                  <VisionVisual />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

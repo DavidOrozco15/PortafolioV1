@@ -9,21 +9,6 @@
 }
 
 /* Circles */
-.hero-circle {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.07);
-  pointer-events: none;
-}
-.hero-circle-1 {
-  width: 720px; height: 720px;
-  top: 50%; right: -260px;
-  transform: translateY(-50%);
-}
-.hero-circle-2 {
-  width: 380px; height: 380px;
-  bottom: 40px; left: -120px;
-}
 
 .hero-content {
   position: relative;

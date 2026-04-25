@@ -99,21 +99,65 @@ const workExperience = [
   },
 ];
 
-// ✏️ REPLACE: Add/remove your tech stack icons
-const techIcons = [
-  // top
-  { label: 'JS',     color: '#F7DF1E', border: 'rgba(247,223,30,0.45)',  bg: 'rgba(247,223,30,0.07)',   pos: { top: '-20px', left: '14%'    }, delay: '0s',    dur: '3.2s' },
-  { label: 'React',  color: '#61DAFB', border: 'rgba(97,218,251,0.45)',  bg: 'rgba(97,218,251,0.07)',   pos: { top: '-20px', right: '12%'   }, delay: '0.5s',  dur: '3.6s' },
-  // left side
-  { label: 'Python', color: '#6BA4D8', border: 'rgba(55,118,171,0.45)',  bg: 'rgba(55,118,171,0.07)',   pos: { top: '20%',   left: '-58px'  }, delay: '0.9s',  dur: '4.0s' },
-  { label: 'CSS3',   color: '#4A90D9', border: 'rgba(21,114,182,0.45)',  bg: 'rgba(21,114,182,0.07)',   pos: { top: '58%',   left: '-58px'  }, delay: '1.4s',  dur: '3.8s' },
-  // right side
-  { label: 'TS',     color: '#6BA4D8', border: 'rgba(49,120,198,0.45)',  bg: 'rgba(49,120,198,0.07)',   pos: { top: '8%',    right: '-58px' }, delay: '0.3s',  dur: '3.5s' },
-  { label: 'Node',   color: '#6DB86A', border: 'rgba(51,153,51,0.45)',   bg: 'rgba(51,153,51,0.07)',    pos: { top: '38%',   right: '-58px' }, delay: '0.7s',  dur: '4.2s' },
-  { label: 'Docker', color: '#36A0ED', border: 'rgba(36,150,237,0.45)',  bg: 'rgba(36,150,237,0.07)',   pos: { top: '68%',   right: '-58px' }, delay: '1.1s',  dur: '3.4s' },
-  // bottom
-  { label: 'Git',    color: '#E07060', border: 'rgba(240,80,50,0.45)',   bg: 'rgba(240,80,50,0.07)',    pos: { bottom: '-20px', left: '10%' }, delay: '1.6s',  dur: '3.9s' },
-  { label: 'n8n',    color: '#A6A6A6', border: 'rgba(166,166,166,0.3)', bg: 'rgba(166,166,166,0.05)',  pos: { bottom: '-20px', right: '8%' }, delay: '0.2s',  dur: '4.1s' },
+const techBadges = [
+  // Arriba del marco
+  {
+    name: 'JavaScript',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    color: 'rgba(247,223,30,0.5)', bg: 'rgba(247,223,30,0.07)',
+    pos: { top: '-56px', left: '10px' }, delay: '0s', dur: '3.2s',
+  },
+  // Derecha del marco
+  {
+    name: 'React',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    color: 'rgba(97,218,251,0.5)', bg: 'rgba(97,218,251,0.07)',
+    pos: { top: '-28px', right: '-82px' }, delay: '0.5s', dur: '3.6s',
+  },
+  {
+    name: 'TypeScript',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+    color: 'rgba(49,120,198,0.5)', bg: 'rgba(49,120,198,0.07)',
+    pos: { top: '72px', right: '-84px' }, delay: '0.3s', dur: '3.5s',
+  },
+  {
+    name: 'Node.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    color: 'rgba(51,153,51,0.5)', bg: 'rgba(51,153,51,0.07)',
+    pos: { top: '185px', right: '-84px' }, delay: '0.7s', dur: '4.2s',
+  },
+  {
+    name: 'Docker',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+    color: 'rgba(36,150,237,0.5)', bg: 'rgba(36,150,237,0.07)',
+    pos: { top: '298px', right: '-80px' }, delay: '1.1s', dur: '3.4s',
+  },
+  // Izquierda del marco
+  {
+    name: 'Python',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    color: 'rgba(55,118,171,0.5)', bg: 'rgba(55,118,171,0.07)',
+    pos: { top: '52px', left: '-82px' }, delay: '0.9s', dur: '4.0s',
+  },
+  {
+    name: 'CSS3',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    color: 'rgba(21,114,182,0.5)', bg: 'rgba(21,114,182,0.07)',
+    pos: { top: '175px', left: '-80px' }, delay: '1.4s', dur: '3.8s',
+  },
+  {
+    name: 'Git',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+    color: 'rgba(240,80,50,0.5)', bg: 'rgba(240,80,50,0.07)',
+    pos: { bottom: '52px', left: '-82px' }, delay: '1.6s', dur: '3.9s',
+  },
+  // Abajo del marco
+  {
+    name: 'n8n',
+    logo: 'https://cdn.simpleicons.org/n8n/ffffff',
+    color: 'rgba(234,75,113,0.5)', bg: 'rgba(234,75,113,0.07)',
+    pos: { bottom: '-56px', right: '10px' }, delay: '0.2s', dur: '4.1s',
+  },
 ];
 
 function WorkDetails({ job }) {
@@ -231,18 +275,19 @@ export default function About() {
           <div className="about-right">
             <div className={`about-photo-zone fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.18s' }}>
 
-              {/* Floating tech icons */}
-              {techIcons.map((icon, i) => (
+              {/* Floating tech logo badges */}
+              {techBadges.map((tech, i) => (
                 <div
                   key={i}
                   className="tech-float"
-                  style={{ ...icon.pos, animationDelay: icon.delay, animationDuration: icon.dur }}
+                  style={{ ...tech.pos, animationDelay: tech.delay, animationDuration: tech.dur }}
+                  title={tech.name}
                 >
                   <div
                     className="tech-badge"
-                    style={{ borderColor: icon.border, backgroundColor: icon.bg }}
+                    style={{ borderColor: tech.color, backgroundColor: tech.bg }}
                   >
-                    <span style={{ color: icon.color }}>{icon.label}</span>
+                    <img src={tech.logo} alt={tech.name} />
                   </div>
                 </div>
               ))}

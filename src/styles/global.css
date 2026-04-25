@@ -128,13 +128,11 @@ img {
 }
 
 /* ===========================
-   DECORATIVE CIRCLE
+   DECORATIVE RING (SVG-based, see DecoRing.jsx)
    =========================== */
-.deco-circle {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.08);
-  pointer-events: none;
+@keyframes decoOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ===========================

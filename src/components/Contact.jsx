@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import DecoRing from './DecoRing';
 import './Contact.css';
 
 const socialLinks = [
@@ -24,7 +25,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="contact-section" ref={ref}>
-      <div className="deco-circle" style={{ width: 760, height: 760, top: -120, left: -280 }} />
+      <DecoRing size={760} style={{ top: -120, left: -280 }} duration={18} delay={-7} />
       <div className="container">
 
         {/* ── Top row: 3 columns ── */}
