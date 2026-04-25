@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useInView } from '../hooks/useInView';
+import DecoRing from './DecoRing';
 import './Projects.css';
 
 // ✏️ REPLACE: Your projects data
@@ -9,92 +10,133 @@ const projects = [
     title: 'Project Name 1',
     description:
       'Brief description of your project. What problem does it solve? What was your role? What impact did it have?',
-    longDescription:
-      'Full description of your project. Describe the architecture, challenges you overcame, technologies used, and results achieved.',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
-    githubUrl: '#',   // ✏️ REPLACE: GitHub URL
-    liveUrl: '#',     // ✏️ REPLACE: Live demo URL
-    // image: '/projects/project1.png',  // ✏️ REPLACE: Uncomment and add your image
+    githubUrl: '#',
+    liveUrl: '#',
     year: '2024',
+    // image: '/projects/project1.png',
   },
   {
     id: 2,
     title: 'Project Name 2',
     description:
       'Brief description of your second project. Highlight key features and technologies used.',
-    longDescription:
-      'Full description of your second project. Describe the architecture, challenges you overcame, and results achieved.',
     tags: ['Golang', 'TypeScript', 'Redis', 'Kubernetes'],
     githubUrl: '#',
     liveUrl: '#',
-    // image: '/projects/project2.png',
     year: '2024',
+    // image: '/projects/project2.png',
   },
   {
     id: 3,
     title: 'Project Name 3',
     description:
       'Brief description of your third project. What makes it interesting or challenging?',
-    longDescription:
-      'Full description of your third project.',
     tags: ['React Native', 'TypeScript', 'iOS', 'Redux'],
     githubUrl: '#',
     liveUrl: null,
-    // image: '/projects/project3.png',
     year: '2023',
+    // image: '/projects/project3.png',
   },
 ];
 
-function ProjectCard({ project, delay }) {
-  const [ref, inView] = useInView({ threshold: 0.1 });
+function Visuals({ project }) {
+  if (project.image) {
+    return (
+      <div className="proj-visuals">
+        <div className="fcard fcard-a"><img src={project.image} alt={project.title} /></div>
+        <div className="fcard fcard-b" />
+        <div className="fcard fcard-c" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="proj-visuals">
+      {/* Card A — main, landscape */}
+      <div className="fcard fcard-a">
+        <div className="fcard-inner">
+          <div className="fcard-topbar">
+            <span className="fcard-dot" /><span className="fcard-dot" /><span className="fcard-dot" />
+          </div>
+          <div className="fcard-shimmer-grid">
+            {[...Array(9)].map((_, i) => <div key={i} className="fcell" />)}
+          </div>
+          <div className="fcard-lines">
+            <div className="fline fline--long" />
+            <div className="fline fline--med" />
+            <div className="fline fline--short" />
+          </div>
+        </div>
+      </div>
+
+      {/* Card B — secondary, portrait */}
+      <div className="fcard fcard-b">
+        <div className="fcard-inner fcard-inner--dark">
+          <div className="fcard-shimmer-grid fcard-shimmer-grid--sm">
+            {[...Array(4)].map((_, i) => <div key={i} className="fcell" />)}
+          </div>
+          <div className="fcard-lines">
+            <div className="fline fline--med" />
+            <div className="fline fline--short" />
+          </div>
+        </div>
+      </div>
+
+      {/* Card C — tags */}
+      <div className="fcard fcard-c">
+        <div className="fcard-inner fcard-inner--tags">
+          {project.tags.slice(0, 3).map(t => (
+            <span key={t} className="tag">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectEntry({ project, index }) {
+  const [ref, inView] = useInView({ threshold: 0.08 });
+  const reversed = index % 2 === 1;
 
   return (
     <div
       ref={ref}
-      className={`project-card fade-in ${inView ? 'visible' : ''}`}
-      style={{ transitionDelay: `${delay}s` }}
+      className={`proj-entry fade-in ${reversed ? 'anim-right' : 'anim-left'}${inView ? ' visible' : ''}${reversed ? ' proj-entry--rev' : ''}`}
+      style={{ transitionDelay: `${0.05 * index}s` }}
     >
-      {/* Image area */}
-      <div className="project-image">
-        {/* ✏️ REPLACE: Uncomment and add your project image
-        <img src={project.image} alt={project.title} />
-        */}
-        <div className="project-image-placeholder">
-          <div className="placeholder-grid">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="placeholder-cell" />
-            ))}
-          </div>
-          <span className="placeholder-label">Add project screenshot</span>
+      <div className="proj-text">
+        <span className="proj-year">{project.year}</span>
+        <h3 className="proj-name">{project.title}</h3>
+        <div className="proj-tags">
+          {project.tags.map(t => <span key={t} className="tag">{t}</span>)}
         </div>
-
-        {/* Action buttons overlay */}
-        <div className="project-actions">
-          <a href={project.githubUrl} className="project-action-btn" target="_blank" rel="noreferrer" title="GitHub">
-            <span className="gh-icon">⌥</span>
+        <p className="proj-desc">{project.description}</p>
+        <div className="proj-btns">
+          <a
+            href={project.githubUrl}
+            className="proj-btn"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <span className="proj-btn-icon">⌥</span>
           </a>
           {project.liveUrl && (
-            <a href={project.liveUrl} className="project-action-btn project-action-arrow" target="_blank" rel="noreferrer" title="Live Demo">
+            <a
+              href={project.liveUrl}
+              className="proj-btn proj-btn--live"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Live demo"
+            >
               ↗
             </a>
           )}
         </div>
       </div>
 
-      {/* Content */}
-      <div className="project-content">
-        {/* Left: info */}
-        <div className="project-info">
-          <span className="project-year">{project.year}</span>
-          <h3 className="project-title">{project.title}</h3>
-          <p className="project-desc">{project.description}</p>
-          <div className="project-tags">
-            {project.tags.map(t => (
-              <span key={t} className="tag">{t}</span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Visuals project={project} />
     </div>
   );
 }
@@ -104,23 +146,25 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section" ref={ref}>
-      <div className="deco-circle" style={{ width: 600, height: 600, top: '20%', right: -250 }} />
+      <DecoRing size={800} style={{ top: '8%', right: -320 }} duration={20} delay={-4} />
       <div className="container">
         <div className="projects-header">
           <p className="section-label">Projects</p>
-          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>
+          <h2 className={`section-title-large fade-in anim-title${inView ? ' visible' : ''}`}>
             Projects
           </h2>
         </div>
 
         <div className="projects-list">
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} delay={0.1 * i} />
+            <ProjectEntry key={project.id} project={project} index={i} />
           ))}
         </div>
 
-        {/* Add more projects hint */}
-        <div className={`projects-more fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+        <div
+          className={`projects-more fade-in${inView ? ' visible' : ''}`}
+          style={{ transitionDelay: '0.4s' }}
+        >
           {/* ✏️ REPLACE: Link to your GitHub profile */}
           <a href="#" className="view-all-btn" target="_blank" rel="noreferrer">
             <span>View all on GitHub</span>

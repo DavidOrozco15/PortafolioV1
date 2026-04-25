@@ -5,54 +5,70 @@ import './Certifications.css';
 const certifications = [
   {
     id: 1,
-    title: 'Análisis de Datos Básico',         
-    issuer: 'TalentoTech',     
-    date: 'Expedición: dic. 2024',                
-    credentialId: 'XXXX-XXXX-XXXX',     
-    credentialUrl: '',                   
-    image: '/certs/cert1.png',             
+    title: 'Análisis de Datos Básico',
+    issuer: 'TalentoTech',
+    date: 'dic. 2024',
+    credentialId: 'XXXX-XXXX-XXXX',
+    credentialUrl: '',
+    image: '/certs/cert1.png',
     description: 'Introducción al análisis de datos y toma de decisiones basada en información.',
     tags: ['Data Analysis', 'Insights'],
   },
-
   {
     id: 2,
-    title: 'Introducción y Manejo de Power BI',         
-    issuer: 'MinTIC',       
-    date: 'Expedición: abr. 2025',              
-    credentialId: 'XXXX-XXXX-XXXX',     
-    credentialUrl: '',                   
-    image: '/certs/cert1.png',            
+    title: 'Introducción y Manejo de Power BI',
+    issuer: 'MinTIC',
+    date: 'abr. 2025',
+    credentialId: 'XXXX-XXXX-XXXX',
+    credentialUrl: '',
+    image: '/certs/cert1.png',
     description: 'Creación de dashboards interactivos y visualización de datos.',
     tags: ['Power BI', 'Dashboards', 'Visualization'],
   },
-
   {
     id: 3,
-    title: 'Técnico en Sistemas',         
-    issuer: 'SENA',       
-    date: 'Expedición: nov. 2019',              
-    credentialId: 'XXXX-XXXX-XXXX',     
-    credentialUrl: '',                   
-    image: '/certs/cert1.png',            
+    title: 'Técnico en Sistemas',
+    issuer: 'SENA',
+    date: 'nov. 2019',
+    credentialId: 'XXXX-XXXX-XXXX',
+    credentialUrl: '',
+    image: '/certs/cert1.png',
     description: 'Formación técnica en soporte, mantenimiento de equipos, redes y sistemas informáticos, con enfoque en diagnóstico y solución de problemas.',
     tags: ['Hardware', 'Networking', 'IT Support', 'Systems'],
   },
-
   {
     id: 4,
-    title: 'Network Security',         
-    issuer: 'Cisco - SENATIC',     
-    date: 'Expedición: oct. 2024',                
-    credentialId: 'XXXX-XXXX-XXXX',     
-    credentialUrl: '',                   
-    image: '/certs/cert1.png',             
+    title: 'Network Security',
+    issuer: 'Cisco · SENATIC',
+    date: 'oct. 2024',
+    credentialId: 'XXXX-XXXX-XXXX',
+    credentialUrl: '',
+    image: '/certs/cert1.png',
     description: 'Fundamentos de ciberseguridad, protección de redes y buenas prácticas en seguridad informática.',
     tags: ['Cybersecurity', 'Networking', 'Security'],
   },
-  
-  // ✏️ Copia este bloque para agregar más certificados
 ];
+
+function ShieldIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+      <path
+        d="M13 2L3 6V12.5C3 18.3 7.48 23.74 13 25C18.52 23.74 23 18.3 23 12.5V6L13 2Z"
+        fill="rgba(255,255,255,0.05)"
+        stroke="rgba(255,255,255,0.22)"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 13L11.5 15.5L17 10"
+        stroke="rgba(255,255,255,0.5)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 function CertModal({ cert, onClose }) {
   useEffect(() => {
@@ -69,19 +85,22 @@ function CertModal({ cert, onClose }) {
     <div className="cert-modal-overlay" onClick={onClose}>
       <div className="cert-modal" onClick={e => e.stopPropagation()}>
         <div className="cert-modal-header">
-          <div>
-            <h3 className="cert-modal-title">{cert.title}</h3>
-            <p className="cert-modal-issuer">{cert.issuer} · {cert.date}</p>
+          <div className="cert-modal-header-left">
+            <ShieldIcon />
+            <div>
+              <h3 className="cert-modal-title">{cert.title}</h3>
+              <p className="cert-modal-issuer">{cert.issuer} · {cert.date}</p>
+            </div>
           </div>
-          <button className="cert-modal-close" onClick={onClose}>✕</button>
+          <button className="cert-modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
         </div>
         <div className="cert-modal-img-wrap">
           {cert.image ? (
             <img src={cert.image} alt={cert.title} className="cert-modal-img" />
           ) : (
             <div className="cert-modal-no-img">
-              <span>🏅</span>
-              <p>Pon la imagen en <code>public/certs/</code> y actualiza el campo <code>image</code></p>
+              <ShieldIcon />
+              <p>Agrega la imagen en <code>public/certs/</code> y actualiza el campo <code>image</code></p>
             </div>
           )}
         </div>
@@ -98,26 +117,47 @@ function CertModal({ cert, onClose }) {
   );
 }
 
-function CertCard({ cert, delay, inView, onVerify }) {
+function CertCard({ cert, index, delay, inView, onVerify }) {
+  const num = String(index + 1).padStart(2, '0');
   return (
-    <div className={`cert-card card fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: `${delay}s` }}>
-      <div className="cert-top">
-        <div className="cert-logo">
-          {cert.icon ? <img src={cert.icon} alt={cert.issuer} /> : <span className="cert-logo-placeholder">🏅</span>}
+    <article
+      className={`cert-card fade-in anim-scale ${inView ? 'visible' : ''}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      {/* Large decorative background number */}
+      <span className="cert-bg-num" aria-hidden="true">{num}</span>
+
+      <div className="cert-body">
+        {/* Top row */}
+        <div className="cert-top">
+          <div className="cert-badge-row">
+            <ShieldIcon />
+            <span className="cert-index">{num}</span>
+          </div>
+          <span className="cert-date">{cert.date}</span>
         </div>
-        <span className="cert-date">{cert.date}</span>
+
+        {/* Title & issuer */}
+        <h3 className="cert-title">{cert.title}</h3>
+        <p className="cert-issuer">{cert.issuer}</p>
+
+        {/* Description */}
+        <p className="cert-desc">{cert.description}</p>
+
+        {/* Tags */}
+        <div className="cert-tags">
+          {cert.tags.map(t => <span key={t} className="tag cert-tag">{t}</span>)}
+        </div>
       </div>
-      <h3 className="cert-title">{cert.title}</h3>
-      <p className="cert-issuer">{cert.issuer}</p>
-      <p className="cert-desc">{cert.description}</p>
-      <div className="cert-tags">
-        {cert.tags.map(t => <span key={t} className="tag">{t}</span>)}
-      </div>
+
+      {/* Footer */}
       <div className="cert-footer">
         <span className="cert-id">ID: {cert.credentialId}</span>
-        <button className="cert-verify" onClick={() => onVerify(cert)}>Verify ↗</button>
+        <button className="cert-verify-btn" onClick={() => onVerify(cert)}>
+          Verify <span className="cert-arrow">↗</span>
+        </button>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -127,29 +167,70 @@ export default function Certifications() {
   const [selected, setSelected] = useState(null);
   const perPage = 4;
   const totalPages = Math.ceil(certifications.length / perPage);
-  const visible = certifications.slice(0, page * perPage);
+  const start = (page - 1) * perPage;
+  const visible = certifications.slice(start, start + perPage);
 
   return (
     <section id="certifications" className="certs-section" ref={ref}>
       {selected && <CertModal cert={selected} onClose={() => setSelected(null)} />}
+
       <div className="container">
+        {/* Header */}
         <div className="certs-header">
           <p className="section-label">Certifications</p>
-          <h2 className={`section-title-large fade-in ${inView ? 'visible' : ''}`}>Formación y Certificaciones</h2>
+          <div className="certs-heading-row">
+            <h2 className={`certs-title fade-in anim-title ${inView ? 'visible' : ''}`}>
+              Formación y<br />Certificaciones
+            </h2>
+            <div className="certs-counter">
+              <span className="certs-counter-num">{String(certifications.length).padStart(2, '0')}</span>
+              <span className="certs-counter-label">credenciales</span>
+            </div>
+          </div>
         </div>
-        <div className="certs-layout">
-          <div className="certs-pagination-side">
+
+        {/* Grid */}
+        <div className="certs-grid">
+          {visible.map((cert, i) => (
+            <CertCard
+              key={cert.id}
+              cert={cert}
+              index={start + i}
+              delay={0.07 * i}
+              inView={inView}
+              onVerify={setSelected}
+            />
+          ))}
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="certs-pagination">
+            <button
+              className="cert-page-nav"
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={page === 1}
+            >
+              ←
+            </button>
             {Array.from({ length: totalPages }).map((_, i) => (
-              <button key={i} className={`page-dot ${page === i + 1 ? 'page-dot-active' : ''}`} onClick={() => setPage(i + 1)}>{i + 1}</button>
+              <button
+                key={i}
+                className={`cert-page-btn ${page === i + 1 ? 'cert-page-btn--active' : ''}`}
+                onClick={() => setPage(i + 1)}
+              >
+                {String(i + 1).padStart(2, '0')}
+              </button>
             ))}
-            <button className="page-dot page-dot-arrow" onClick={() => setPage(p => Math.min(p + 1, totalPages))}>↓</button>
+            <button
+              className="cert-page-nav"
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages}
+            >
+              →
+            </button>
           </div>
-          <div className="certs-grid">
-            {visible.map((cert, i) => (
-              <CertCard key={cert.id} cert={cert} delay={0.08 * i} inView={inView} onVerify={setSelected} />
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import IntroAnimation from './components/IntroAnimation';
+import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -24,6 +25,7 @@ export default function App() {
 
       {/* Portfolio principal */}
       <div className={`portfolio-root ${introDone ? 'portfolio-visible' : ''}`}>
+        <Background visible={introDone} />
         <Navbar />
         <main>
           <Hero />
