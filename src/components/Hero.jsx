@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import DecoRing from './DecoRing';
 import './Hero.css';
 
 const socialLinks = [
@@ -23,9 +24,9 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero" ref={heroRef}>
-      {/* Decorative circles */}
-      <div className="hero-circle hero-circle-1" />
-      <div className="hero-circle hero-circle-2" />
+      {/* Decorative rings */}
+      <DecoRing size={720} style={{ top: '50%', right: -260, transform: 'translateY(-50%)' }} duration={16} delay={0} />
+      <DecoRing size={380} style={{ bottom: 40, left: -120 }} duration={10} delay={-5} />
 
       <div className="container">
         <div className="hero-content">
@@ -43,7 +44,7 @@ export default function Hero() {
           </div>
 
           {/* Big title */}
-          <div className="hero-title hero-anim fade-in">
+          <div className="hero-title hero-anim fade-in anim-title">
             {/* ✏️ REPLACE: Your job title / headline */}
             <span className="title-line-1">Full–stack</span>
             <span className="title-line-2">Developer</span>

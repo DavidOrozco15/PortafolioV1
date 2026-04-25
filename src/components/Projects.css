@@ -7,17 +7,6 @@
   overflow: hidden;
 }
 
-/* Decorative background circle */
-.projects-deco-circle {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  top: 8%;
-  right: -320px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  pointer-events: none;
-}
 
 .projects-header {
   margin-bottom: 4rem;

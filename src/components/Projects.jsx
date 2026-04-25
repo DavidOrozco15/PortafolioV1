@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import DecoRing from './DecoRing';
 import './Projects.css';
 
 // ✏️ REPLACE: Your projects data
@@ -101,7 +102,7 @@ function ProjectEntry({ project, index }) {
   return (
     <div
       ref={ref}
-      className={`proj-entry fade-in${inView ? ' visible' : ''}${reversed ? ' proj-entry--rev' : ''}`}
+      className={`proj-entry fade-in ${reversed ? 'anim-right' : 'anim-left'}${inView ? ' visible' : ''}${reversed ? ' proj-entry--rev' : ''}`}
       style={{ transitionDelay: `${0.05 * index}s` }}
     >
       <div className="proj-text">
@@ -145,11 +146,11 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section" ref={ref}>
-      <div className="projects-deco-circle" />
+      <DecoRing size={800} style={{ top: '8%', right: -320 }} duration={20} delay={-4} />
       <div className="container">
         <div className="projects-header">
           <p className="section-label">Projects</p>
-          <h2 className={`section-title-large fade-in${inView ? ' visible' : ''}`}>
+          <h2 className={`section-title-large fade-in anim-title${inView ? ' visible' : ''}`}>
             Projects
           </h2>
         </div>
