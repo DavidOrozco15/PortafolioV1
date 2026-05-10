@@ -4,20 +4,20 @@ import DecoRing from './DecoRing';
 import './Contact.css';
 
 const socialLinks = [
-  { label: 'Github',    icon: '⌥',  href: '#' },
-  { label: 'Linkedin',  icon: 'in', href: '#' },
+  { label: 'Github',    icon: '⌥',  href: 'https://github.com/DavidOrozco15' },
+  { label: 'Linkedin',  icon: 'in', href: 'https://www.linkedin.com/in/davidorozco15/' },
   { label: 'E-mail',    icon: '✉',  href: 'mailto:juanodavid94@gmail.com' },
-  { label: 'Telegram',  icon: '✈',  href: '#' },
-  { label: 'Facebook',  icon: 'f',  href: '#' },
-  { label: 'Instagram', icon: '◎',  href: '#' },
+  { label: 'Whatsapp',  icon: '✈',  href: 'https://wa.me/573053705478' },
+  { label: 'Facebook',  icon: 'f',  href: 'https://www.facebook.com/david.orozco.884769' },
+  { label: 'Instagram', icon: '◎',  href: 'https://www.instagram.com/juanoo.999' },
 ];
 
 const navLinks = [
-  { label: 'Main',       href: '#hero' },
-  { label: 'About',      href: '#about' },
-  { label: 'Projects',   href: '#projects' },
-  { label: 'Services',   href: '#services' },
-  { label: 'Philosophy', href: '#mission' },
+  { label: 'Inicio',       href: '#hero' },
+  { label: 'Sobre mi',      href: '#about' },
+  { label: 'Proyectos',   href: '#projects' },
+  { label: 'Servicios',   href: '#services' },
+  { label: 'Filosofia', href: '#mission' },
 ];
 
 export default function Contact() {
@@ -56,10 +56,9 @@ export default function Contact() {
           <div className="contact-col">
             <p className="contact-col-label">... /Contacto ...</p>
             <div className="contact-site-card card">
-              <p className="card-label">Site</p>
-              <p className="card-line">Handcrafted by ME /</p>
-              <p className="card-line">Designed by You /</p>
-              <p className="card-line">Powered by React</p>
+              <p className="card-label">Mi numero de Contacto</p>
+              <p className="card-line">+57 3142076728 /</p>
+              <p className="card-line">+57 3053705478 /</p>
             </div>
           </div>
         </div>
@@ -77,9 +76,9 @@ export default function Contact() {
         {/* ── Footer bar ── */}
         <div className={`contact-footer fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
           <span className="footer-copy">
-            © {new Date().getFullYear()} David Orozco. All rights reserved.
+            © {new Date().getFullYear()} David Orozco. Todos los derechos reservados.
           </span>
-          <span className="footer-built">Built with React + Vite</span>
+          <span className="footer-built">Creado con React + Vite</span>
         </div>
 
       </div>

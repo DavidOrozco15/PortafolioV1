@@ -5,9 +5,9 @@ import './Hero.css';
 const socialLinks = [
   { label: 'GitHub',    icon: '⌥', href: 'https://github.com/DavidOrozco15' },
   { label: 'LinkedIn',  icon: 'in', href: 'https://www.linkedin.com/in/davidorozco15/' },
-  { label: 'Telegram',  icon: '✈', href: '#' },
-  { label: 'Facebook',  icon: 'f',  href: '#' },
-  { label: 'Instagram', icon: '◎',  href: '#' },
+  { label: 'Whatsapp',  icon: '✈',  href: 'https://wa.me/573053705478' },
+  { label: 'Facebook',  icon: 'f',  href: 'https://www.facebook.com/david.orozco.884769' },
+  { label: 'Instagram', icon: '◎',  href: 'https://www.instagram.com/juanoo.999' },
 ];
 
 export default function Hero() {
@@ -53,7 +53,7 @@ export default function Hero() {
           {/* Subtitle */}
           <p className="hero-subtitle hero-anim fade-in">
             {/* ✏️ REPLACE: Your professional tagline / goal */}
-            My goal is to write <em>maintainable, clean</em> and <em>understandable code</em> to make development enjoyable.
+            Mi meta es desarrollar código <em>limpio, legible</em> y <em>fácil de mantener</em> logrando que el proceso de desarrollo sea gratificante.
           </p>
 
           {/* Social links */}
