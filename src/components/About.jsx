@@ -4,97 +4,77 @@ import './About.css';
 
 // ✏️ REPLACE: Your skill categories and items
 const skillGroups = [
-  { title: 'Frontend', items: 'React / Vue / Angular / TypeScript / Next.js / Tailwind / Redux' },
-  { title: 'Styles',   items: 'CSS3 / SCSS / Styled-Components / Material UI / Framer Motion' },
-  { title: 'Backend',  items: 'Node.js / Golang / Python / PostgreSQL / MongoDB / Redis / Docker' },
-  { title: 'DevOps',   items: 'Git / CI/CD / Docker / Kubernetes / AWS / Linux' },
+  { title: 'Frontend', items: 'React / TypeScript / JavaScript / Tailwind CSS / Next.js' },
+  { title: 'UI/UX Design',   items: 'Figma / Framer Motion / CSS3 / SCSS / Responsive Design' },
+  { title: 'Backend & Automation',  items: 'Python / Node.js / n8n / SQL / MySQL / Java' },
+  { title: 'Workflow & Tools',   items: 'Git / GitHub / Scrum / Telegram Bot API / WhatsApp Business API' },
 ];
 
 // ✏️ REPLACE: Your key stats
 const stats = [
-  { value: '5+',  label: 'Años de\nexperiencia' },
+  { value: '24/7',  label: 'Innovación\ncontinua' },
   { value: '10+', label: 'Proyectos\ncompletados' },
-  { value: '4',   label: 'Áreas de\ntecnología' },
+  { value: '4+',   label: 'Áreas de\ntecnología' },
   { value: '∞',   label: 'Líneas de\ncódigo' },
 ];
 
 // ✏️ REPLACE: Your work experience — fill in functions, achievements and projects for each entry
 const workExperience = [
   {
-    period: '2025 – Present', duration: '1 yr+',
-    company: 'CampusLands', role: 'Full-stack Developer', tech: 'React & TypeScript',
+    period: '2025 – Presente', duration: '1 año',
+    company: 'CampusLands', role: 'Full-stack Developer', tech: 'Python, JavaScript, Java, MYSQL, Scrum, Springboot, React, n8n, Git, Github, Html y Css',
     active: true,
     functions: [
-      'Desarrollo de interfaces responsivas con React y TypeScript',
+      'Desarrollo y estructuración de proyectos escalables de software.',
       'Integración con APIs REST y servicios backend',
-      'Implementación de componentes reutilizables y design systems',
+      'Aplicación de Inteligencia Artificial para la optimización del desarrollo y código.',
       'Participación en code reviews y metodologías ágiles (Scrum)',
+      'Gestión de bases de datos relacionales mediante SQL y MySQL para el soporte de lógica de negocio compleja.',
     ],
     achievements: [
-      'Mejora del 30% en rendimiento de carga de la aplicación',
-      'Implementación de sistema de autenticación con JWT',
-      'Reducción del 40% en bugs reportados en producción',
+      'Ejecución exitosa de proyectos bajo el marco de trabajo Scrum, garantizando la entrega continua de valor y la adaptabilidad del equipo.',
+      'Optimización del tiempo de desarrollo en un 30% mediante la implementación de prompts avanzados y herramientas de IA aplicadas al código.',
+      'Liderazgo en procesos de revisión de código y control de versiones utilizando Git y GitHub para asegurar la integridad de los repositorios colaborativos.',
     ],
     projects: [
-      { name: 'Plataforma E-learning', desc: 'Sistema de gestión de cursos y estudiantes', tags: ['React', 'TypeScript', 'Node.js'] },
-      { name: 'Dashboard Analytics', desc: 'Panel de métricas y reportes en tiempo real', tags: ['React', 'Charts.js', 'REST API'] },
+      { name: 'Ecosistema de Automatización IT', desc: 'Diseño de flujos de trabajo que conectan múltiples servicios (APIs) para la gestión automática de incidentes y soporte técnico.', tags: ['Json', 'n8n', 'SQL'] },
+      { name: 'Landing Pages de Alto Impacto', desc: 'Creación de sitios web optimizados desde el prototipado en Figma hasta el despliegue final, asegurando adaptabilidad total en dispositivos móviles.', tags: ['React', 'Tailwind CSS', 'Figma'] },
     ],
   },
   {
-    period: '2022 – 2024', duration: '2 yrs',
-    company: 'Company Name', role: 'Full-stack Developer', tech: 'React & Node.js',
+    period: '2024 – Presente', duration: '2+ años',
+    company: 'Freelance', role: 'Full-stack Developer', tech: 'HTML, CSS, JavaScript, React y Figma.',
     active: false,
     functions: [
-      'Desarrollo y mantenimiento de aplicaciones web full-stack',
-      'Diseño e implementación de APIs RESTful con Node.js',
-      'Gestión de bases de datos relacionales y no relacionales',
-      'Optimización de consultas y rendimiento del servidor',
+      'Diseño de interfaces, prototipado de landing pages y estructuración de sitios web modernos utilizando Figma.',
+      'Desarrollo de aplicaciones web en el Front-End usando HTML, CSS, JavaScript y React.',
+      'Creación de flujos de automatización e integración de bases de datos mediante n8n y Python.',
+      'Configuración de bots conversacionales para la optimización de procesos de atención al cliente.',
     ],
     achievements: [
-      'Migración exitosa de arquitectura monolítica a microservicios',
-      'Reducción del tiempo de respuesta de APIs en un 50%',
-      'Liderazgo técnico en equipo de 4 desarrolladores',
+      'Publicación exitosa de una extensión propia de gestión de credenciales (CredEasy) en el Marketplace.',
+      'Automatización de pedidos y soporte técnico mediante la integración de la API de WhatsApp y Telegram.',
+      'Entrega de Diseños de sitios web con un diseño profesional, elegante y enfocado en una excelente experiencia de usuario (UX).',
     ],
     projects: [
-      { name: 'E-commerce Platform', desc: 'Tienda en línea con carrito y pasarela de pagos', tags: ['React', 'Node.js', 'MongoDB'] },
-      { name: 'CRM Interno', desc: 'Gestión de clientes y seguimiento de ventas', tags: ['React', 'PostgreSQL', 'Express'] },
+      { name: 'Herramientas de Automatización', desc: 'Desarrollo de HelpDeskBot para automatizar PQRS', tags: ['n8n', 'JavaScript', 'Telegram API'] },
+      { name: 'Neon Bucaramanga & Web Apps', desc: 'Landing pages responsivas con efectos visuales avanzados y estructuración de portafolio web interactivo.', tags: ['React', 'JavaScript', 'Figma'] },
     ],
   },
   {
-    period: '2021 – 2022', duration: '1 yr',
-    company: 'Company Name', role: 'Frontend Developer', tech: 'JavaScript & Python',
+    period: '2024 – 2024', duration: '6 Meses',
+    company: 'Accedo Technologies', role: 'Helpdesk IT | Hardware & Soporte | Practicante', tech: 'Hardware',
     active: false,
     functions: [
-      'Maquetación de interfaces a partir de diseños en Figma',
-      'Desarrollo de scripts de automatización con Python',
-      'Integración de servicios de terceros vía API',
-      'Mantenimiento y mejora de código existente',
+      'Diagnóstico y solución de problemas de hardware, software y conectividad.',
+      'Administración de cuentas de usuario en Active Directory y sistemas similares.',
     ],
     achievements: [
-      'Automatización de procesos que redujo tiempos manuales en 60%',
-      'Implementación de diseño responsive para 3 productos principales',
+      'Ejecución de mantenimiento preventivo y correctivo en computadoras y periféricos corporativos.',
+      'Implementación y refuerzo de medidas de seguridad informática.',
     ],
     projects: [
-      { name: 'Landing Pages', desc: 'Páginas de aterrizaje optimizadas para conversión', tags: ['HTML', 'CSS', 'JavaScript'] },
-      { name: 'Bot de Reportes', desc: 'Automatización de generación de reportes con Python', tags: ['Python', 'Pandas', 'API'] },
-    ],
-  },
-  {
-    period: '2020 – 2021', duration: '1 yr',
-    company: 'Company Name', role: 'Junior Developer', tech: 'JavaScript & HTML/CSS',
-    active: false,
-    functions: [
-      'Desarrollo de componentes UI en JavaScript vanilla',
-      'Corrección de bugs y mejoras en código existente',
-      'Soporte técnico IT y mantenimiento de equipos',
-      'Documentación de procesos internos',
-    ],
-    achievements: [
-      'Primer despliegue a producción sin incidencias',
-      'Implementación de mejoras de accesibilidad en sitio web',
-    ],
-    projects: [
-      { name: 'Sitio Corporativo', desc: 'Rediseño del sitio web institucional de la empresa', tags: ['HTML', 'CSS', 'JavaScript'] },
+      { name: 'Soporte Corporativo', desc: 'Configuración, instalación y actualización continua de sistemas operativos para múltiples usuarios.', tags: ['Windows'] },
     ],
   },
 ];
@@ -250,23 +230,23 @@ export default function About() {
           {/* Left column */}
           <div className="about-left">
             <div className="about-heading">
-              <p className="section-label">Sobre mi</p>
-              <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>About</h2>
+              <p className="section-label">Quien soy?</p>
+              <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>Sobre mi</h2>
             </div>
 
             <div className={`about-bio fade-in anim-left ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.12s' }}>
               <p className="about-intro">
                 {/* ✏️ REPLACE */}
-                Hello! I'm <strong>David Orozco</strong>, I'm a <em>full-stack developer</em>.<br />
-                More than <strong>5 years</strong> of experience.
+                ¡Hola! Soy <strong>David Orozco</strong>, Soy <em>Desarrollador Junior Full Stack.</em>.
+                
               </p>
               <p className="about-text">
                 {/* ✏️ REPLACE */}
-                Soy Desarrollador Full Stack con un enfoque integral que combina sólidos
-                conocimientos en hardware, desarrollo de software y creación de aplicaciones
-                modernas. Mi stack principal incluye JavaScript para el desarrollo de
-                interfaces dinámicas y Python con SQL para la gestión eficiente de lógica
-                de negocio y bases de datos.
+                Me especializo en crear soluciones digitales integrales que fusionan un diseño elegante con arquitecturas escalables. Mi enfoque combina sólidos conocimientos en hardware con el desarrollo de aplicaciones modernas, utilizando <strong><em>JavaScript, React y Tailwind CSS</em></strong> para construir interfaces dinámicas y de alto rendimiento.
+
+En el backend, gestiono la lógica de negocio y bases de datos con <strong><em>Python, SQL y Java</em></strong>. Además, potencio la eficiencia operativa mediante automatizaciones avanzadas con n8n y bots de soporte.
+
+Mi trabajo se basa en la resolución de problemas, el liderazgo bajo metodología Scrum y la creación de tecnología con un alto nivel de innovación.
               </p>
             </div>
           </div>
@@ -332,7 +312,7 @@ export default function About() {
         {/* ── Work Experience ── */}
         <div className={`work-section fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.55s' }}>
           <div className="work-header">
-            <h2 className="section-title-large">Work</h2>
+            <h2 className="section-title-large">Trayectoria</h2>
           </div>
           <div className="work-list">
             {workExperience.map((job, i) => (
@@ -345,7 +325,7 @@ export default function About() {
             ))}
           </div>
           <div className="work-total">
-            Work experience: <strong>5+ años</strong>
+            Experiencia: <strong>1+ año</strong>
           </div>
         </div>
 

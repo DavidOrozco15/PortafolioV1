@@ -10,7 +10,8 @@ const certifications = [
     date: 'dic. 2024',
     credentialId: 'XXXX-XXXX-XXXX',
     credentialUrl: '',
-    image: '/certs/cert1.png',
+    image: '/src/img/Certificado Analisis de Datos_page-0001.jpg',
+
     description: 'Introducción al análisis de datos y toma de decisiones basada en información.',
     tags: ['Data Analysis', 'Insights'],
   },
@@ -21,8 +22,9 @@ const certifications = [
     date: 'abr. 2025',
     credentialId: 'XXXX-XXXX-XXXX',
     credentialUrl: '',
-    image: '/certs/cert1.png',
+    image: '/src/img/Certificado Power BI_page-0001.jpg',
     description: 'Creación de dashboards interactivos y visualización de datos.',
+
     tags: ['Power BI', 'Dashboards', 'Visualization'],
   },
   {
@@ -32,8 +34,9 @@ const certifications = [
     date: 'nov. 2019',
     credentialId: 'XXXX-XXXX-XXXX',
     credentialUrl: '',
-    image: '/certs/cert1.png',
+    image: '/src/img/Certificado de SENA_page-0001.jpg',
     description: 'Formación técnica en soporte, mantenimiento de equipos, redes y sistemas informáticos, con enfoque en diagnóstico y solución de problemas.',
+
     tags: ['Hardware', 'Networking', 'IT Support', 'Systems'],
   },
   {
@@ -43,8 +46,9 @@ const certifications = [
     date: 'oct. 2024',
     credentialId: 'XXXX-XXXX-XXXX',
     credentialUrl: '',
-    image: '/certs/cert1.png',
+    image: '/src/img/Certificado Ciberseguridad_page-0001.jpg',
     description: 'Fundamentos de ciberseguridad, protección de redes y buenas prácticas en seguridad informática.',
+
     tags: ['Cybersecurity', 'Networking', 'Security'],
   },
 ];
@@ -100,7 +104,7 @@ function CertModal({ cert, onClose }) {
           ) : (
             <div className="cert-modal-no-img">
               <ShieldIcon />
-              <p>Agrega la imagen en <code>public/certs/</code> y actualiza el campo <code>image</code></p>
+              
             </div>
           )}
         </div>
