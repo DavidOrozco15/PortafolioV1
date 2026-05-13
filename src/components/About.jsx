@@ -274,13 +274,12 @@ Mi trabajo se basa en la resolución de problemas, el liderazgo bajo metodologí
 
               {/* Profile photo */}
               <div className="about-photo">
-                {/* ✏️ REPLACE: <img src="/your-photo.jpg" alt="David Orozco" /> */}
+                <img src="/src/img/FotoPerfil.jpg" alt="David Orozco" />
                 <div className="photo-placeholder">
                   <div className="photo-silhouette">
                     <div className="sil-head" />
                     <div className="sil-body" />
                   </div>
-                  <span className="photo-hint">Tu foto aquí</span>
                 </div>
               </div>
 
