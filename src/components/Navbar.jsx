@@ -39,9 +39,9 @@ export default function Navbar() {
 
         {/* Language toggle */}
         <div className="navbar-right">
-          <button className="lang-toggle">En</button>
+          <button className="lang-toggle">Es</button>
           <span className="lang-sep">/</span>
-          <button className="lang-toggle lang-inactive">Es</button>
+          <button className="lang-toggle lang-inactive">En</button>
         </div>
 
         {/* Hamburger */}
