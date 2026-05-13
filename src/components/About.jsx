@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import './About.css';
+import FotoPerfil from '../img/FotoPerfil.jpg';
 
 // ✏️ REPLACE: Your skill categories and items
 const skillGroups = [
@@ -274,7 +275,7 @@ Mi trabajo se basa en la resolución de problemas, el liderazgo bajo metodologí
 
               {/* Profile photo */}
               <div className="about-photo">
-                <img src="../src/img/FotoPerfil.jpg" alt="David Orozco" />
+                <img src={FotoPerfil} alt="David Orozco" className="about-photo-img" />
                 <div className="photo-placeholder">
                   <div className="photo-silhouette">
                     <div className="sil-head" />
