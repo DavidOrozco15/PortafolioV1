@@ -3,8 +3,8 @@ import { useInView } from '../hooks/useInView';
 import DecoRing from './DecoRing';
 import helpdeskbot1 from '../img/Helpdeskbot 1.png';
 import helpdeskbot2 from '../img/helpdeskbot2.jpg';
-import patitas1 from '../img/Patitas 1.png';
-import patitas2 from '../img/patitas2.jpg';
+import logitrack1 from '../img/logitrack1.png';
+import logitrack2 from '../img/logitrack2.png';
 import credeasy1 from '../img/credeasy1.jpg';
 import credeasy2 from '../img/credeasy2.jpg';
 import './Projects.css';
@@ -13,15 +13,15 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: 'Patitas Felices — Plataforma de Adopción.',
+    title: 'LogiTrack WMS — Sistema de Gestión y Auditoría de Bodegas.',
     description:
-      'Aplicación web moderna y responsiva para una fundación de rescate animal, enfocada en la gestión de adopciones y la visibilidad de mascotas rescatadas. Digitaliza el proceso de adopción, proporcionando una interfaz amigable que facilita la conexión entre rescatistas y posibles adoptantes, mejorando la experiencia de usuario.',
-    tags: ['HTML', 'CSS'],
-    githubUrl: 'https://github.com/DavidOrozco15/Patitas-Felices---Fundacion-de-Rescate-y-Adopcion-de-Animales.git',
+      'Sistema backend de gestión y auditoría de bodegas para una empresa con múltiples sedes distribuidas en distintas ciudades. Centraliza el control de inventario —entradas, salidas y transferencias de productos entre bodegas— con autenticación JWT basada en roles (ADMIN/EMPLEADO), registro automático de auditorías y una API REST documentada con Swagger, brindando trazabilidad completa sobre cada cambio realizado por los usuarios del sistema.',
+    tags: ['Java', 'Spring Boot', 'JWT', 'Swagger'],
+    githubUrl: '#',
     liveUrl: '#',
-    year: '2025',
-    image: patitas1,
-    imageB: patitas2,
+    year: '2026',
+    image: logitrack1,
+    imageB: logitrack2,
   },
   {
     id: 2,
