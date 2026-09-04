@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../hooks/useLanguage';
 import DecoRing from './DecoRing';
 import './Contact.css';
 
@@ -12,16 +13,9 @@ const socialLinks = [
   { label: 'Instagram', icon: '◎',  href: 'https://www.instagram.com/juanoo.999' },
 ];
 
-const navLinks = [
-  { label: 'Inicio',       href: '#hero' },
-  { label: 'Sobre mi',      href: '#about' },
-  { label: 'Proyectos',   href: '#projects' },
-  { label: 'Servicios',   href: '#services' },
-  { label: 'Filosofia', href: '#mission' },
-];
-
 export default function Contact() {
   const [ref, inView] = useInView({ threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="contact-section" ref={ref}>
@@ -37,15 +31,15 @@ export default function Contact() {
               <span>David</span>
               <span>Orozco</span>
             </h2>
-            <p className="contact-role">Full-stack developer</p>
+            <p className="contact-role">{t.contact.role}</p>
           </div>
 
           {/* Col 2 — Navigation */}
           <div className="contact-col">
-            <p className="contact-col-label">Navegación</p>
+            <p className="contact-col-label">{t.contact.navigation}</p>
             <nav className="contact-nav">
-              {navLinks.map(l => (
-                <a key={l.label} href={l.href} className="contact-nav-link">
+              {t.contact.navLinks.map(l => (
+                <a key={l.href} href={l.href} className="contact-nav-link">
                   {l.label}
                 </a>
               ))}
@@ -54,9 +48,9 @@ export default function Contact() {
 
           {/* Col 3 — Site card */}
           <div className="contact-col">
-            <p className="contact-col-label">... /Contacto ...</p>
+            <p className="contact-col-label">{t.contact.contactLabel}</p>
             <div className="contact-site-card card">
-              <p className="card-label">Mi numero de Contacto</p>
+              <p className="card-label">{t.contact.contactNumber}</p>
               <p className="card-line">+57 3142076728 /</p>
               <p className="card-line">+57 3053705478 /</p>
             </div>
@@ -76,9 +70,9 @@ export default function Contact() {
         {/* ── Footer bar ── */}
         <div className={`contact-footer fade-in ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
           <span className="footer-copy">
-            © {new Date().getFullYear()} David Orozco. Todos los derechos reservados.
+            © {new Date().getFullYear()} David Orozco. {t.contact.copyright}
           </span>
-          <span className="footer-built">Creado con React + Vite</span>
+          <span className="footer-built">{t.contact.built}</span>
         </div>
 
       </div>

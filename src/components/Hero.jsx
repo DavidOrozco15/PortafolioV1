@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 import DecoRing from './DecoRing';
 import './Hero.css';
 
@@ -12,6 +13,7 @@ const socialLinks = [
 
 export default function Hero() {
   const heroRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const el = heroRef.current;
@@ -33,28 +35,26 @@ export default function Hero() {
           {/* Top row: name + Projects button */}
           <div className="hero-top hero-anim fade-in">
             <div className="hero-name">
-              {/* ✏️ REPLACE: Your first and last name */}
               <span className="name-first">David</span>
               <span className="name-last">Orozco</span>
             </div>
             <a href="#projects" className="hero-cta-btn">
-              <span>Proyectos</span>
+              <span>{t.hero.projectsBtn}</span>
               <span className="arrow-icon">→</span>
             </a>
           </div>
 
           {/* Big title */}
           <div className="hero-title hero-anim fade-in anim-title">
-            {/* ✏️ REPLACE: Your job title / headline */}
             <span className="title-line-1">Full–stack</span>
             <span className="title-line-2">Developer</span>
           </div>
 
           {/* Subtitle */}
-          <p className="hero-subtitle hero-anim fade-in">
-            {/* ✏️ REPLACE: Your professional tagline / goal */}
-            Mi meta es desarrollar código <em>limpio, legible</em> y <em>fácil de mantener</em> logrando que el proceso de desarrollo sea gratificante.
-          </p>
+          <p
+            className="hero-subtitle hero-anim fade-in"
+            dangerouslySetInnerHTML={{ __html: t.hero.tagline }}
+          />
 
           {/* Social links */}
           <div className="hero-socials hero-anim fade-in">
@@ -71,7 +71,7 @@ export default function Hero() {
       {/* Scroll hint */}
       <div className="scroll-hint hero-anim fade-in">
         <div className="scroll-line" />
-        <span>scroll</span>
+        <span>{t.hero.scroll}</span>
       </div>
     </section>
   );

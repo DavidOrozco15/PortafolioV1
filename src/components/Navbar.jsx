@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../hooks/useLanguage';
 import './Navbar.css';
 
-const navLinks = [
-  { label: 'Sobre mi',        href: '#about' },
-  { label: 'Proyectos',     href: '#projects' },
-  { label: 'Certificaciones', href: '#certifications' },
-  { label: 'Contacto',      href: '#contact' },
-];
-
 export default function Navbar() {
+  const { lang, t, toggleLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -18,12 +13,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const navLinks = [
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.certifications, href: '#certifications' },
+    { label: t.nav.contact, href: '#contact' },
+  ];
+
   return (
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
         {/* Logo / Name */}
         <a href="#hero" className="navbar-logo">
-          {/* ✏️ REPLACE: Your name or logo here */}
           <span className="logo-first">David</span>
           <span className="logo-last">Orozco</span>
         </a>
@@ -31,7 +32,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <ul className="navbar-links">
           {navLinks.map(l => (
-            <li key={l.label}>
+            <li key={l.href}>
               <a href={l.href} className="nav-link">{l.label}</a>
             </li>
           ))}
@@ -39,9 +40,19 @@ export default function Navbar() {
 
         {/* Language toggle */}
         <div className="navbar-right">
-          <button className="lang-toggle">Es</button>
+          <button
+            className={`lang-toggle ${lang === 'es' ? '' : 'lang-inactive'}`}
+            onClick={() => lang !== 'es' && toggleLanguage()}
+          >
+            Es
+          </button>
           <span className="lang-sep">/</span>
-          <button className="lang-toggle lang-inactive">En</button>
+          <button
+            className={`lang-toggle ${lang === 'en' ? '' : 'lang-inactive'}`}
+            onClick={() => lang !== 'en' && toggleLanguage()}
+          >
+            En
+          </button>
         </div>
 
         {/* Hamburger */}
@@ -58,7 +69,7 @@ export default function Navbar() {
       <div className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''}`}>
         {navLinks.map(l => (
           <a
-            key={l.label}
+            key={l.href}
             href={l.href}
             className="mobile-nav-link"
             onClick={() => setMenuOpen(false)}

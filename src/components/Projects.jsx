@@ -1,52 +1,19 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../hooks/useLanguage';
 import DecoRing from './DecoRing';
 import helpdeskbot1 from '../img/Helpdeskbot 1.png';
 import helpdeskbot2 from '../img/helpdeskbot2.jpg';
-import patitas1 from '../img/Patitas 1.png';
-import patitas2 from '../img/patitas2.jpg';
+import logitrack1 from '../img/logitrack1.png';
+import logitrack2 from '../img/logitrack2.png';
 import credeasy1 from '../img/credeasy1.jpg';
 import credeasy2 from '../img/credeasy2.jpg';
 import './Projects.css';
 
-// ✏️ REPLACE: Your projects data
-const projects = [
-  {
-    id: 1,
-    title: 'Patitas Felices — Plataforma de Adopción.',
-    description:
-      'Aplicación web moderna y responsiva para una fundación de rescate animal, enfocada en la gestión de adopciones y la visibilidad de mascotas rescatadas. Digitaliza el proceso de adopción, proporcionando una interfaz amigable que facilita la conexión entre rescatistas y posibles adoptantes, mejorando la experiencia de usuario.',
-    tags: ['HTML', 'CSS'],
-    githubUrl: 'https://github.com/DavidOrozco15/Patitas-Felices---Fundacion-de-Rescate-y-Adopcion-de-Animales.git',
-    liveUrl: '#',
-    year: '2025',
-    image: patitas1,
-    imageB: patitas2,
-  },
-  {
-    id: 2,
-    title: 'CredEasy — Credenciales de Git facilitadas.',
-    description:
-      'Extensión publicada para Visual Studio Code diseñada para simplificar y automatizar la configuración de credenciales de Git (nombre y correo) de forma global o local directamente desde el editor. Elimina la necesidad de usar comandos de terminal repetitivos para configurar la identidad del desarrollador, reduciendo errores en los commits y agilizando el inicio de nuevos proyectos.',
-    tags: ['Git', 'TypeScript', 'Node.js', 'JavaScript'],
-    githubUrl: 'https://github.com/DavidOrozco15/CredEasy---Credenciales.git',
-    liveUrl: '#',
-    year: '2025',
-    image: credeasy1,
-    imageB: credeasy2,
-  },
-  {
-    id: 3,
-    title: 'HelpDeskBot — Gestión Automatizada de Soporte.',
-    description:
-      'Sistema inteligente de mesa de ayuda que integra un bot de Telegram con n8n para la gestión, registro y seguimiento de incidentes técnicos en tiempo real. Centraliza el reporte de fallas técnicas de forma intuitiva para el usuario, automatizando el almacenamiento de datos en hojas de cálculo y notificando instantáneamente al equipo de soporte.',
-    tags: ['n8n', 'Telegram API', 'Google Sheets', 'JavaScript'],
-    githubUrl: 'https://github.com/DavidOrozco15/HelpDeskBot_n8n.git',
-    liveUrl: null,
-    year: '2026',
-    image: helpdeskbot1,
-    imageB: helpdeskbot2,
-  },
+const projectsMeta = [
+  { tags: ['Java', 'Spring Boot', 'JWT', 'Swagger'], githubUrl: '#', liveUrl: '#', year: '2026', image: logitrack1, imageB: logitrack2 },
+  { tags: ['Git', 'TypeScript', 'Node.js', 'JavaScript'], githubUrl: 'https://github.com/DavidOrozco15/CredEasy---Credenciales.git', liveUrl: '#', year: '2025', image: credeasy1, imageB: credeasy2 },
+  { tags: ['n8n', 'Telegram API', 'Google Sheets', 'JavaScript'], githubUrl: 'https://github.com/DavidOrozco15/HelpDeskBot_n8n.git', liveUrl: null, year: '2026', image: helpdeskbot1, imageB: helpdeskbot2 },
 ];
 
 function Visuals({ project }) {
@@ -70,7 +37,6 @@ function Visuals({ project }) {
 
   return (
     <div className="proj-visuals">
-      {/* Card A — main, landscape */}
       <div className="fcard fcard-a">
         <div className="fcard-inner">
           <div className="fcard-topbar">
@@ -87,7 +53,6 @@ function Visuals({ project }) {
         </div>
       </div>
 
-      {/* Card B — secondary, portrait */}
       <div className="fcard fcard-b">
         <div className="fcard-inner fcard-inner--dark">
           <div className="fcard-shimmer-grid fcard-shimmer-grid--sm">
@@ -100,7 +65,6 @@ function Visuals({ project }) {
         </div>
       </div>
 
-      {/* Card C — tags */}
       <div className="fcard fcard-c">
         <div className="fcard-inner fcard-inner--tags">
           {project.tags.slice(0, 3).map(t => (
@@ -112,7 +76,7 @@ function Visuals({ project }) {
   );
 }
 
-function ProjectEntry({ project, index }) {
+function ProjectEntry({ project, meta, index }) {
   const [ref, inView] = useInView({ threshold: 0.08 });
   const reversed = index % 2 === 1;
 
@@ -123,15 +87,15 @@ function ProjectEntry({ project, index }) {
       style={{ transitionDelay: `${0.05 * index}s` }}
     >
       <div className="proj-text">
-        <span className="proj-year">{project.year}</span>
+        <span className="proj-year">{meta.year}</span>
         <h3 className="proj-name">{project.title}</h3>
         <div className="proj-tags">
-          {project.tags.map(t => <span key={t} className="tag">{t}</span>)}
+          {meta.tags.map(t => <span key={t} className="tag">{t}</span>)}
         </div>
         <p className="proj-desc">{project.description}</p>
         <div className="proj-btns">
           <a
-            href={project.githubUrl}
+            href={meta.githubUrl}
             className="proj-btn"
             target="_blank"
             rel="noreferrer"
@@ -139,9 +103,9 @@ function ProjectEntry({ project, index }) {
           >
             <span className="proj-btn-icon">⌥</span>
           </a>
-          {project.liveUrl && (
+          {meta.liveUrl && (
             <a
-              href={project.liveUrl}
+              href={meta.liveUrl}
               className="proj-btn proj-btn--live"
               target="_blank"
               rel="noreferrer"
@@ -153,28 +117,29 @@ function ProjectEntry({ project, index }) {
         </div>
       </div>
 
-      <Visuals project={project} />
+      <Visuals project={{ ...project, ...meta }} />
     </div>
   );
 }
 
 export default function Projects() {
   const [ref, inView] = useInView({ threshold: 0.05 });
+  const { t } = useLanguage();
 
   return (
     <section id="projects" className="projects-section" ref={ref}>
       <DecoRing size={800} style={{ top: '8%', right: -320 }} duration={20} delay={-4} />
       <div className="container">
         <div className="projects-header">
-          <p className="section-label">Desarrollos</p>
+          <p className="section-label">{t.projects.sectionLabel}</p>
           <h2 className={`section-title-large fade-in anim-title${inView ? ' visible' : ''}`}>
-            Proyectos
+            {t.projects.title}
           </h2>
         </div>
 
         <div className="projects-list">
-          {projects.map((project, i) => (
-            <ProjectEntry key={project.id} project={project} index={i} />
+          {t.projects.items.map((project, i) => (
+            <ProjectEntry key={i} project={project} meta={projectsMeta[i]} index={i} />
           ))}
         </div>
 
@@ -182,9 +147,8 @@ export default function Projects() {
           className={`projects-more fade-in${inView ? ' visible' : ''}`}
           style={{ transitionDelay: '0.4s' }}
         >
-          {/* ✏️ REPLACE: Link to your GitHub profile */}
           <a href="https://github.com/DavidOrozco15" className="view-all-btn" target="_blank" rel="noreferrer">
-            <span>Ir a Github y ver todos</span>
+            <span>{t.projects.viewAll}</span>
             <span className="btn-arrow">→</span>
           </a>
         </div>

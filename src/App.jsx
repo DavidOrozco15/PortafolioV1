@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { LanguageProvider, LanguageContext } from './context/LanguageContext';
 import IntroAnimation from './components/IntroAnimation';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
@@ -11,7 +12,7 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import './styles/app.css';
 
-export default function App() {
+function Portfolio() {
   const [introDone, setIntroDone] = useState(false);
 
   const handleIntroDone = useCallback(() => {
@@ -19,24 +20,34 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      {/* Animación de intro */}
-      {!introDone && <IntroAnimation onDone={handleIntroDone} />}
+    <LanguageContext.Consumer>
+      {({ animPhase }) => (
+        <>
+          {!introDone && <IntroAnimation onDone={handleIntroDone} />}
 
-      {/* Portfolio principal */}
-      <div className={`portfolio-root ${introDone ? 'portfolio-visible' : ''}`}>
-        <Background visible={introDone} />
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <MissionVision />
-          <Services />
-          <Projects />
-          <Certifications />
-          <Contact />
-        </main>
-      </div>
-    </>
+          <div className={`portfolio-root ${introDone ? 'portfolio-visible' : ''} ${animPhase === 'fading-out' ? 'lang-fade-out' : ''} ${animPhase === 'fading-in' ? 'lang-fade-in' : ''}`}>
+            <Background visible={introDone} />
+            <Navbar />
+            <main>
+              <Hero />
+              <About />
+              <MissionVision />
+              <Services />
+              <Projects />
+              <Certifications />
+              <Contact />
+            </main>
+          </div>
+        </>
+      )}
+    </LanguageContext.Consumer>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <Portfolio />
+    </LanguageProvider>
   );
 }

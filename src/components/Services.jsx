@@ -1,51 +1,7 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../hooks/useLanguage';
 import './Services.css';
-
-const services = [
-  {
-    number: '01',
-    title: 'Frontend Development',
-    description: 'Desarrollo interfaces web modernas, responsivas y centradas en el usuario utilizando HTML, CSS y JavaScript.',
-    tags: ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
-    anim: 'frontend',
-  },
-  {
-    number: '02',
-    title: 'Backend Development',
-    description: 'Desarrollo lógica del lado del servidor, manejo de datos y creación de APIs básicas para aplicaciones web.',
-    tags: ['Node.js', 'APIs', 'JSON', 'Python'],
-    anim: 'backend',
-  },
-  {
-    number: '03',
-    title: 'Desarrollo Fullstack',
-    description: 'Construcción de aplicaciones web completas integrando frontend y backend, aplicando buenas prácticas y estructura escalable.',
-    tags: ['Fullstack', 'CRUD', 'Web Apps'],
-    anim: 'fullstack',
-  },
-  {
-    number: '04',
-    title: 'UI/UX Design',
-    description: 'Diseño interfaces atractivas y prototipos en Figma, priorizando la usabilidad y la experiencia del usuario.',
-    tags: ['Figma', 'UX', 'Prototyping'],
-    anim: 'uiux',
-  },
-  {
-    number: '05',
-    title: 'Automatización (n8n)',
-    description: 'Automatización de flujos de trabajo utilizando n8n, integrando APIs, bases de datos y servicios para optimizar procesos y reducir tareas manuales.',
-    tags: ['n8n', 'Automation', 'APIs'],
-    anim: 'n8n',
-  },
-  {
-    number: '06',
-    title: 'Soporte Técnico IT',
-    description: 'Diagnóstico y solución de problemas en hardware, software y redes, garantizando el correcto funcionamiento de sistemas.',
-    tags: ['Hardware', 'Software', 'Networking'],
-    anim: 'it',
-  },
-];
 
 /* ── SVG illustration per service ── */
 
@@ -207,22 +163,25 @@ const animMap = {
   it:       AnimIT,
 };
 
+const animKeys = ['frontend', 'backend', 'fullstack', 'uiux', 'n8n', 'it'];
+
 export default function Services() {
   const [ref, inView] = useInView({ threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
     <section id="services" className="services-section" ref={ref}>
       <div className="container">
         <div className="services-header">
-          <p className="section-label">Servicios</p>
+          <p className="section-label">{t.services.sectionLabel}</p>
           <h2 className={`section-title-large fade-in anim-title ${inView ? 'visible' : ''}`}>
-            Servicios
+            {t.services.title}
           </h2>
         </div>
 
         <div className="services-grid">
-          {services.map((s, i) => {
-            const Anim = animMap[s.anim];
+          {t.services.items.map((s, i) => {
+            const Anim = animMap[animKeys[i]];
             return (
               <div
                 key={s.number}
