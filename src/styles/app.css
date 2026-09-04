@@ -12,3 +12,17 @@ main {
   position: relative;
   z-index: 1;
 }
+
+/* Language switch animation — fade out */
+.portfolio-root.lang-fade-out {
+  opacity: 0 !important;
+  transform: scale(0.99);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Language switch animation — fade in */
+.portfolio-root.lang-fade-in {
+  opacity: 1 !important;
+  transform: scale(1);
+  transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
+}
