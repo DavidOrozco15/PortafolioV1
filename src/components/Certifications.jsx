@@ -1,56 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from '../hooks/useInView';
+import { useLanguage } from '../hooks/useLanguage';
 import './Certifications.css';
 
-const certifications = [
-  {
-    id: 1,
-    title: 'Análisis de Datos Básico',
-    issuer: 'TalentoTech',
-    date: 'dic. 2024',
-    credentialId: 'XXXX-XXXX-XXXX',
-    credentialUrl: '',
-    image: '/src/img/Certificado Analisis de Datos_page-0001.jpg',
-
-    description: 'Introducción al análisis de datos y toma de decisiones basada en información.',
-    tags: ['Data Analysis', 'Insights'],
-  },
-  {
-    id: 2,
-    title: 'Introducción y Manejo de Power BI',
-    issuer: 'MinTIC',
-    date: 'abr. 2025',
-    credentialId: 'XXXX-XXXX-XXXX',
-    credentialUrl: '',
-    image: '/src/img/Certificado Power BI_page-0001.jpg',
-    description: 'Creación de dashboards interactivos y visualización de datos.',
-
-    tags: ['Power BI', 'Dashboards', 'Visualization'],
-  },
-  {
-    id: 3,
-    title: 'Técnico en Sistemas',
-    issuer: 'SENA',
-    date: 'nov. 2019',
-    credentialId: 'XXXX-XXXX-XXXX',
-    credentialUrl: '',
-    image: '/src/img/Certificado de SENA_page-0001.jpg',
-    description: 'Formación técnica en soporte, mantenimiento de equipos, redes y sistemas informáticos, con enfoque en diagnóstico y solución de problemas.',
-
-    tags: ['Hardware', 'Networking', 'IT Support', 'Systems'],
-  },
-  {
-    id: 4,
-    title: 'Network Security',
-    issuer: 'Cisco · SENATIC',
-    date: 'oct. 2024',
-    credentialId: 'XXXX-XXXX-XXXX',
-    credentialUrl: '',
-    image: '/src/img/Certificado Ciberseguridad_page-0001.jpg',
-    description: 'Fundamentos de ciberseguridad, protección de redes y buenas prácticas en seguridad informática.',
-
-    tags: ['Cybersecurity', 'Networking', 'Security'],
-  },
+const certMeta = [
+  { credentialId: 'XXXX-XXXX-XXXX', credentialUrl: '', image: '/src/img/Certificado Analisis de Datos_page-0001.jpg', tags: ['Data Analysis', 'Insights'] },
+  { credentialId: 'XXXX-XXXX-XXXX', credentialUrl: '', image: '/src/img/Certificado Power BI_page-0001.jpg', tags: ['Power BI', 'Dashboards', 'Visualization'] },
+  { credentialId: 'XXXX-XXXX-XXXX', credentialUrl: '', image: '/src/img/Certificado de SENA_page-0001.jpg', tags: ['Hardware', 'Networking', 'IT Support', 'Systems'] },
+  { credentialId: 'XXXX-XXXX-XXXX', credentialUrl: '', image: '/src/img/Certificado Ciberseguridad_page-0001.jpg', tags: ['Cybersecurity', 'Networking', 'Security'] },
 ];
 
 function ShieldIcon() {
@@ -74,7 +31,7 @@ function ShieldIcon() {
   );
 }
 
-function CertModal({ cert, onClose }) {
+function CertModal({ cert, onClose, t }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);
@@ -96,7 +53,7 @@ function CertModal({ cert, onClose }) {
               <p className="cert-modal-issuer">{cert.issuer} · {cert.date}</p>
             </div>
           </div>
-          <button className="cert-modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+          <button className="cert-modal-close" onClick={onClose} aria-label={t.certifications.close}>✕</button>
         </div>
         <div className="cert-modal-img-wrap">
           {cert.image ? (
@@ -104,7 +61,6 @@ function CertModal({ cert, onClose }) {
           ) : (
             <div className="cert-modal-no-img">
               <ShieldIcon />
-              
             </div>
           )}
         </div>
@@ -112,7 +68,7 @@ function CertModal({ cert, onClose }) {
           <span className="cert-id">ID: {cert.credentialId}</span>
           {cert.credentialUrl && (
             <a href={cert.credentialUrl} className="cert-verify-link" target="_blank" rel="noreferrer">
-              Ver credencial oficial ↗
+              {t.certifications.verifyOfficial}
             </a>
           )}
         </div>
@@ -121,18 +77,16 @@ function CertModal({ cert, onClose }) {
   );
 }
 
-function CertCard({ cert, index, delay, inView, onVerify }) {
+function CertCard({ cert, meta, index, delay, inView, onVerify, t }) {
   const num = String(index + 1).padStart(2, '0');
   return (
     <article
       className={`cert-card fade-in anim-scale ${inView ? 'visible' : ''}`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      {/* Large decorative background number */}
       <span className="cert-bg-num" aria-hidden="true">{num}</span>
 
       <div className="cert-body">
-        {/* Top row */}
         <div className="cert-top">
           <div className="cert-badge-row">
             <ShieldIcon />
@@ -141,24 +95,19 @@ function CertCard({ cert, index, delay, inView, onVerify }) {
           <span className="cert-date">{cert.date}</span>
         </div>
 
-        {/* Title & issuer */}
         <h3 className="cert-title">{cert.title}</h3>
         <p className="cert-issuer">{cert.issuer}</p>
-
-        {/* Description */}
         <p className="cert-desc">{cert.description}</p>
 
-        {/* Tags */}
         <div className="cert-tags">
-          {cert.tags.map(t => <span key={t} className="tag cert-tag">{t}</span>)}
+          {meta.tags.map(t => <span key={t} className="tag cert-tag">{t}</span>)}
         </div>
       </div>
 
-      {/* Footer */}
       <div className="cert-footer">
-        <span className="cert-id">ID: {cert.credentialId}</span>
-        <button className="cert-verify-btn" onClick={() => onVerify(cert)}>
-          Verify <span className="cert-arrow">↗</span>
+        <span className="cert-id">ID: {meta.credentialId}</span>
+        <button className="cert-verify-btn" onClick={() => onVerify({ ...cert, ...meta })}>
+          {t.certifications.verify} <span className="cert-arrow">↗</span>
         </button>
       </div>
     </article>
@@ -169,45 +118,47 @@ export default function Certifications() {
   const [ref, inView] = useInView({ threshold: 0.05 });
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState(null);
+  const { t } = useLanguage();
   const perPage = 4;
-  const totalPages = Math.ceil(certifications.length / perPage);
+  const totalPages = Math.ceil(t.certifications.items.length / perPage);
   const start = (page - 1) * perPage;
-  const visible = certifications.slice(start, start + perPage);
+  const visible = t.certifications.items.slice(start, start + perPage);
 
   return (
     <section id="certifications" className="certs-section" ref={ref}>
-      {selected && <CertModal cert={selected} onClose={() => setSelected(null)} />}
+      {selected && <CertModal cert={selected} onClose={() => setSelected(null)} t={t} />}
 
       <div className="container">
-        {/* Header */}
         <div className="certs-header">
-          <p className="section-label">Certifications</p>
+          <p className="section-label">{t.certifications.sectionLabel}</p>
           <div className="certs-heading-row">
             <h2 className={`certs-title fade-in anim-title ${inView ? 'visible' : ''}`}>
-              Formación y<br />Certificaciones
+              {t.certifications.title.split('\n').map((line, i) => (
+                <React.Fragment key={i}>{line}{i === 0 && <br />}</React.Fragment>
+              ))}
             </h2>
             <div className="certs-counter">
-              <span className="certs-counter-num">{String(certifications.length).padStart(2, '0')}</span>
-              <span className="certs-counter-label">credenciales</span>
+              <span className="certs-counter-num">{String(t.certifications.items.length).padStart(2, '0')}</span>
+              <span className="certs-counter-label">{t.certifications.credentials}</span>
             </div>
           </div>
         </div>
 
-        {/* Grid */}
         <div className="certs-grid">
           {visible.map((cert, i) => (
             <CertCard
-              key={cert.id}
+              key={i}
               cert={cert}
+              meta={certMeta[start + i]}
               index={start + i}
               delay={0.07 * i}
               inView={inView}
               onVerify={setSelected}
+              t={t}
             />
           ))}
         </div>
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="certs-pagination">
             <button
