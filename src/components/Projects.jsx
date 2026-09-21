@@ -11,8 +11,8 @@ import credeasy2 from '../img/credeasy2.jpg';
 import './Projects.css';
 
 const projectsMeta = [
-  { tags: ['Java', 'Spring Boot', 'JWT', 'Swagger'], githubUrl: '#', liveUrl: '#', year: '2026', image: logitrack1, imageB: logitrack2 },
-  { tags: ['Git', 'TypeScript', 'Node.js', 'JavaScript'], githubUrl: 'https://github.com/DavidOrozco15/CredEasy---Credenciales.git', liveUrl: '#', year: '2025', image: credeasy1, imageB: credeasy2 },
+  { tags: ['Java', 'Spring Boot', 'JWT', 'Swagger'], githubUrl: 'https://github.com/Felipe-Corzo/Proyecto_SpringBoot_LogiTrack.git', liveUrl: null, year: '2026', image: logitrack1, imageB: logitrack2 },
+  { tags: ['Git', 'TypeScript', 'Node.js', 'JavaScript'], githubUrl: 'https://github.com/DavidOrozco15/CredEasy---Credenciales.git', liveUrl: null, year: '2025', image: credeasy1, imageB: credeasy2 },
   { tags: ['n8n', 'Telegram API', 'Google Sheets', 'JavaScript'], githubUrl: 'https://github.com/DavidOrozco15/HelpDeskBot_n8n.git', liveUrl: null, year: '2026', image: helpdeskbot1, imageB: helpdeskbot2 },
 ];
 
